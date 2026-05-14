@@ -1,0 +1,201 @@
+{
+  "nav": {
+    "brand": "Riḥlat al-Kalimāt",
+    "brandArabic": "رحلة الكلمات",
+    "home": "Home",
+    "toggleTheme": "Toggle theme",
+    "toggleThemeToLight": "Switch to light theme",
+    "toggleThemeToDark": "Switch to dark theme",
+    "languageSwitch": {
+      "label": "Language",
+      "tr": "TR",
+      "en": "EN",
+      "ar": "العربية"
+    }
+  },
+  "entities": {
+    "word": "Word",
+    "person": "Person",
+    "book": "Book",
+    "theme": "Theme",
+    "wordPlural": "Words",
+    "personPlural": "People",
+    "bookPlural": "Books",
+    "themePlural": "Themes"
+  },
+  "sections": {
+    "sources": "Sources",
+    "stratigraphy": "Historical strata",
+    "etymology": "Etymology",
+    "inheritanceLine": "Inheritance line",
+    "wordsIndebted": "Words indebted to this person",
+    "works": "Works",
+    "author": "Author",
+    "manuscripts": "Notable manuscripts",
+    "translations": "Translations & critical editions",
+    "siblings": "Sibling words",
+    "relatedWords": "Words bound to this book",
+    "appearsInThemes": "Appears in themes"
+  },
+  "stratigraphy": {
+    "modeProportionalInactive": "Switch to year-proportional spacing (show real distances)",
+    "modeProportionalActive": "Switch back to equal spacing (for reading)"
+  },
+  "person": {
+    "meta": {
+      "lifespan": "Lifespan",
+      "birthplace": "Birthplace",
+      "activeIn": "Active in",
+      "workLanguages": "Languages of work"
+    }
+  },
+  "book": {
+    "meta": {
+      "author": "Author",
+      "composed": "Composed",
+      "composedIn": "Composed in",
+      "originalLanguage": "Original language"
+    },
+    "manuscriptStatus": {
+      "full": "fully digitised",
+      "partial": "partially digitised",
+      "offline": "offline only"
+    }
+  },
+  "theme": {
+    "tier": {
+      "magnum": "Magnum essay",
+      "cluster": "Cluster"
+    },
+    "miniAtlas": {
+      "aria": "Theme route — mini map"
+    }
+  },
+  "common": {
+    "loading": "Loading…",
+    "comingSoon": "Coming soon",
+    "back": "Back",
+    "sources": "Sources"
+  },
+  "languages": {
+    "turkish": "Turkish",
+    "english": "English",
+    "arabic": "Arabic"
+  },
+  "home": {
+    "atlasTitle": "Atlas",
+    "atlasSubtitle": "the excavation site — geographic anchors of the corpus",
+    "directoryTitle": "Directory",
+    "directorySubtitle": "all entries in the corpus",
+    "tierShowcase": "Deeply worked — Showcase tier",
+    "tierCatalogue": "Compact entry — Catalogue tier"
+  },
+  "atlas": {
+    "resetZoom": "Reset zoom",
+    "timelineLabel": "Time:",
+    "timelineAll": "all time",
+    "timelineUpTo": "up to {{year}}",
+    "timelineReset": "Show all time",
+    "searchLabel": "Search words",
+    "searchPlaceholder": "e.g. coffee, admiral, algorithm",
+    "reset": "clear",
+    "resetLabel": "Clear filters",
+    "journeyFilter": "Journey archetype",
+    "noMatch": "No matches",
+    "matchCount_one": "{{count}} match",
+    "matchCount_other": "{{count}} matches",
+    "entities": "entries"
+  },
+  "wordsList": {
+    "subtitle": "All words in the corpus.",
+    "count": "{{count}} entries",
+    "sortLabel": "Sort:",
+    "sortAlphabetical": "Alphabetical",
+    "sortJourney": "By archetype",
+    "sortAnchors": "By atlas route",
+    "anchorCount": "{{count}}-hop atlas route",
+    "anchorSingle": "single atlas anchor",
+    "seeAll": "see all",
+    "filterLabel": "Filter:",
+    "filterAll": "All",
+    "filterShowcase": "Showcase",
+    "filterCatalogue": "Catalogue",
+    "countFiltered": "{{shown}} of {{total}} entries"
+  },
+  "personsList": {
+    "subtitle": "All persons in the corpus.",
+    "count": "{{count}} entries",
+    "sortLabel": "Sort:",
+    "sortAlphabetical": "Alphabetical",
+    "sortLifespan": "By lifespan",
+    "sortAnchors": "By atlas route",
+    "anchorCount": "{{count}}-place biographical route",
+    "seeAll": "see all",
+    "filterLabel": "Filter:",
+    "filterAll": "All",
+    "filterShowcase": "Showcase",
+    "filterCatalogue": "Catalogue",
+    "countFiltered": "{{shown}} of {{total}} entries"
+  },
+  "booksList": {
+    "subtitle": "All books in the corpus.",
+    "count": "{{count}} entries",
+    "sortLabel": "Sort:",
+    "sortAlphabetical": "Alphabetical",
+    "sortComposed": "By date of composition",
+    "sortAnchors": "By atlas route",
+    "anchorCount": "{{count}}-place manuscript/translation route",
+    "seeAll": "see all",
+    "filterLabel": "Filter:",
+    "filterAll": "All",
+    "filterShowcase": "Showcase",
+    "filterCatalogue": "Catalogue",
+    "countFiltered": "{{shown}} of {{total}} entries"
+  },
+  "journeys": {
+    "label": "Journey",
+    "translator": "The translator's path",
+    "merchant": "The merchant's caravan",
+    "andalusian": "Andalusian sediment",
+    "crusader": "The crusader's memory",
+    "astronomer": "The astronomer's legacy",
+    "alchemist": "The alchemist's workshop",
+    "diplomatic": "Diplomatic exchange",
+    "indexTitle": "Journey archetypes",
+    "indexSubtitle": "A loanword's migration between languages rarely follows a single track; seven typical routes give the story its backbone. Below: a definition of each archetype and the words it carries.",
+    "indexBack": "All journeys",
+    "wordCount_one": "{{count}} word",
+    "wordCount_other": "{{count}} words",
+    "empty": "no entries yet",
+    "emptyNote": "Words belonging to this archetype have not yet entered the corpus. Future editorial dilims — with candidates such as admiral, assassin, Aldebaran — will fill this page.",
+    "colophon": "This page is generated from the MDX files under /content/journeys/ (slice 7/35); the full content and sources are in each archetype's own document."
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "The project's thesis, method and current state — a single colophon-grade page.",
+    "thesisHead": "The project",
+    "methodHead": "Editorial method",
+    "stateHead": "Where the project stands",
+    "sourcesHead": "Source standard",
+    "closingHead": "A closing note",
+    "footerNote": "Riḥlat al-Kalimāt · a research and publication effort · 2026"
+  },
+  "footer": {
+    "about": "About",
+    "sourceCode": "Source code",
+    "edition": "Edition",
+    "colophonMark": "·"
+  },
+  "share": {
+    "share": "Share this page",
+    "copied": "Link copied",
+    "shared": "Shared"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "words": "Words",
+    "persons": "Persons",
+    "books": "Books",
+    "themes": "Themes"
+  }
+}

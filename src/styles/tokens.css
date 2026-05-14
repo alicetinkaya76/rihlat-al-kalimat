@@ -1,0 +1,93 @@
+/* =========================================================================
+   RIḤLAT AL-KALIMĀT · DESIGN TOKENS
+   Kaynak: algorithm.html (Oturum 1, Word DNA referansı).
+   Aynı token seti al-khwarizmi.html (Person) ve al-jabr.html (Book) için
+   de geçerli. Bu dosya tek doğru kaynak (single source of truth) — diğer
+   stillerde bu değerlerin elle yazılı kopyaları olmamalı.
+   ========================================================================= */
+
+:root {
+  /* ----- Palet — her renk korpustaki bir kelime ya da elyazması malzemeye bağlı ----- */
+  --ink: #1a1612;
+  --parchment: #f4efe6;
+  --parchment-deep: #e8dfcc;
+  --parchment-edge: #d9cdb4;
+  --terracotta: #b8442e;
+  --terracotta-deep: #8b2f1e;
+  --lazaward: #1f3d6b;
+  --lazaward-pale: #4a6a99;
+  --gold-leaf: #a88b3d;
+  --gold-pale: #d4b870;
+  --saffron: #d4923a;
+  --moss: #5a6b4a;
+
+  /* ----- Tipografi aileleri ----- */
+  --serif: 'EB Garamond', 'Garamond', 'Times New Roman', serif;
+  --sans: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+  --arabic: 'Amiri', 'Times New Roman', serif;
+  --arabic-ui: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+
+  /* `--display` aslen ayrı bir “başlıklık” font için ayrılmış token; ek
+     font yüklemekten kaçınmak için MVP'de --serif'e eşleniyor (EB
+     Garamond zaten manuscript-y bir serif; başlıklar large fs-3xl/fs-4xl
+     ile zaten `display`-tonunda görünüyor). İleride ayrı bir display
+     yüzü (ör. Cormorant Garamond, Cormorant SC) eklenmek istenirse
+     yalnız bu satır değişir; kullanım sahaları (WordPage/Person/Book/
+     ThemePage/HomePage) zaten `var(--display)` çağırıyor. */
+  --display: var(--serif);
+
+  /* ----- Boşluk ölçeği — 4px tonik üzerine ----- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* ----- Tipografi ölçeği ----- */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.75rem;
+  --fs-4xl: 4rem;
+  --fs-display: 7rem;
+
+  /* ----- Çözümlenmiş tema token'ları (light) ----- */
+  --bg: var(--parchment);
+  --bg-deep: var(--parchment-deep);
+  --bg-edge: var(--parchment-edge);
+  --fg: var(--ink);
+  --fg-muted: #5c544a;
+  --fg-faint: #8a8175;
+  --rule: #c9bfaa;
+  --accent: var(--terracotta);
+  --accent-2: var(--lazaward);
+  --gold: var(--gold-leaf);
+  --highlight: rgba(212, 146, 58, 0.18);
+  --grain-opacity: 0.05;
+  --shadow-soft: 0 1px 0 rgba(26, 22, 18, 0.06);
+}
+
+[data-theme='dark'] {
+  --bg: #0e0b08;
+  --bg-deep: #14100b;
+  --bg-edge: #1f1812;
+  --fg: #ede3d0;
+  --fg-muted: #b5a88e;
+  --fg-faint: #756a5a;
+  --rule: #2e2620;
+  --accent: var(--saffron);
+  --accent-2: var(--lazaward-pale);
+  --gold: var(--gold-pale);
+  --highlight: rgba(212, 184, 112, 0.14);
+  --grain-opacity: 0.08;
+  --shadow-soft: 0 1px 0 rgba(255, 240, 210, 0.04);
+}

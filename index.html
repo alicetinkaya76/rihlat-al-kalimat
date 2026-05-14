@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Riḥlat al-Kalimāt — Türkçe, İngilizce, Arapça etimolojik bilgi grafı."
+    />
+
+    <!--
+      Favicon — dilim 7/15.γ(C). Manuscript-themed Atlas-pin SVG.
+      Vite public/ klasöründen kök URL'e kopyalar (/favicon.svg).
+      Modern tarayıcılar SVG favicon'u native destekler (Chrome 80+,
+      Firefox 41+, Safari 15+, Edge 80+).
+
+      Dilim 7/18.ε.A: apple-touch-icon PNG'ye geçti. Eski iOS Safari
+      home-screen icon'u için SVG'yi render edemiyor; 180×180 PNG eski
+      iOS uyumu için gerekli. Aynı geometri (favicon.svg → cairosvg →
+      apple-touch-icon.png).
+    -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!--
+      Open Graph + Twitter Card meta etiketleri (dilim 7/18.ε.A — launch hazırlığı).
+
+      Sosyal paylaşımlarda görsel + başlık + tagline tutarlı görünsün diye.
+      og-image.png 1200×630 manuscript-aesthetic (favicon paleti, üç dilde
+      brand + Toledo-merkezli atlas-pin geometri tezini). Twitter Card
+      summary_large_image — aynı görsel.
+
+      `og:url`/`twitter:url` placeholder (deploy origin'i SITE_ORIGIN env
+      ile belirlenecek; build-time injection ileride eklenecek). Şu an
+      mutlak URL yerine path-relative bırakılmıyor — OG spec mutlak ister;
+      bu yüzden placeholder origin "https://rihla.example".
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Riḥlat al-Kalimāt" />
+    <meta property="og:title" content="Riḥlat al-Kalimāt — Üç dilli etimolojik bilgi grafı" />
+    <meta
+      property="og:description"
+      content="Avrupa dillerinin altında uyuyan Arapça tabakaları arkeoloji sahası gibi okuyan üç-dilli bir bilgi grafı. Kelime · Kişi · Kitap · Tema."
+    />
+    <meta property="og:image" content="https://rihla.example/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Riḥlat al-Kalimāt — manuscript-aesthetic banner with the three-language brand mark and an atlas-pin geometry centred on Toledo." />
+    <meta property="og:url" content="https://rihla.example/" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="ar" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Riḥlat al-Kalimāt — Üç dilli etimolojik bilgi grafı" />
+    <meta
+      name="twitter:description"
+      content="Avrupa dillerinin altında uyuyan Arapça tabakaları arkeoloji sahası gibi okuyan üç-dilli bir bilgi grafı."
+    />
+    <meta name="twitter:image" content="https://rihla.example/og-image.png" />
+    <meta name="twitter:image:alt" content="Manuscript-aesthetic banner with the three-language brand mark and an atlas-pin geometry centred on Toledo." />
+
+    <link rel="canonical" href="https://rihla.example/" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--
+      Tema flicker'ı önlemek için: localStorage'tan tema okunup body
+      render'dan önce data-theme atributu set edilir.
+
+      Dilim 7/30.κ-prime: bu script `public/theme-bootstrap.js`'e
+      taşındı (CSP cleanup). render-blocking sync external script —
+      defer/async YOK; body parse'i bu sync yükten ÖNCE `data-theme`
+      atribute'ı görür, parchment-anı (FOUC) oluşmaz. ~200 byte file,
+      Vercel/Cloudflare edge cache ile <10ms latency.
+
+      CSP notu: `script-src 'self'` bu dosyayı kabul eder; `'unsafe-inline'`
+      yine de gerekli — React-injected JSON-LD blokları (dilim 7/29.κ)
+      inline script olarak kalır. CSP-strict yolculuğu bir adım
+      ilerledi ama tamamlanmadı.
+    -->
+    <script src="/theme-bootstrap.js"></script>
+
+    <!--
+      GitHub Pages SPA fallback eş-script'i (dilim 7/39):
+      `public/404.html` redirect ile path'i query string'e gömer
+      (örn. /coffee → /?/coffee). Bu script query'yi okur ve
+      history.replaceState ile gerçek path'i geri yazar — React Router
+      doğru route'u görür. URL bar kullanıcının istediği gibi gösterir.
+    -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+
+    <title>Riḥlat al-Kalimāt</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+{
+  "nav": {
+    "brand": "Riḥlat al-Kalimāt",
+    "brandArabic": "رحلة الكلمات",
+    "home": "الصفحة الرئيسة",
+    "toggleTheme": "تبديل السمة",
+    "toggleThemeToLight": "التحوّل إلى السمة الفاتحة",
+    "toggleThemeToDark": "التحوّل إلى السمة الداكنة",
+    "languageSwitch": {
+      "label": "اللغة",
+      "tr": "TR",
+      "en": "EN",
+      "ar": "العربية"
+    }
+  },
+  "entities": {
+    "word": "كلمة",
+    "person": "شخص",
+    "book": "كتاب",
+    "theme": "موضوع",
+    "wordPlural": "الكلمات",
+    "personPlural": "الأشخاص",
+    "bookPlural": "الكتب",
+    "themePlural": "الموضوعات"
+  },
+  "sections": {
+    "sources": "المصادر",
+    "stratigraphy": "الطبقات",
+    "etymology": "شجرةُ الاشتقاق",
+    "inheritanceLine": "حلقة الأثر",
+    "wordsIndebted": "كلماتٌ تَدينُ له",
+    "works": "مؤلَّفاته",
+    "author": "المؤلِّف",
+    "manuscripts": "مخطوطاتٌ بارزة",
+    "translations": "الترجمات والتحقيقات",
+    "siblings": "كلماتٌ شقيقة",
+    "relatedWords": "كلماتٌ موصولةٌ بهذا الكتاب",
+    "appearsInThemes": "يَرِدُ في الموضوعات"
+  },
+  "stratigraphy": {
+    "modeProportionalInactive": "إلى المَسافاتِ السَّنويّةِ الحَقيقيّةِ (إظهارُ الفَوارقِ الزَّمنيّة)",
+    "modeProportionalActive": "إلى التَّباعُدِ المتساوي (للقراءة)"
+  },
+  "person": {
+    "meta": {
+      "lifespan": "حياته",
+      "birthplace": "مسقط الرأس",
+      "activeIn": "مكان عمله",
+      "workLanguages": "لغاتُ أعماله"
+    }
+  },
+  "book": {
+    "meta": {
+      "author": "المؤلِّف",
+      "composed": "تاريخ التأليف",
+      "composedIn": "مكان التأليف",
+      "originalLanguage": "اللغة الأصليّة"
+    },
+    "manuscriptStatus": {
+      "full": "رقميّةٌ كاملة",
+      "partial": "رقميّةٌ جزئيّة",
+      "offline": "غيرُ متاحةٍ رقميّاً"
+    }
+  },
+  "theme": {
+    "tier": {
+      "magnum": "مَقالةٌ كُبرى",
+      "cluster": "عُنقودٌ موضوعيّ"
+    },
+    "miniAtlas": {
+      "aria": "مَسارُ الموضوع — خَريطةٌ مُصَغَّرة"
+    }
+  },
+  "common": {
+    "loading": "جارٍ التحميل…",
+    "comingSoon": "قريباً",
+    "back": "رجوع",
+    "sources": "المَصادِر"
+  },
+  "languages": {
+    "turkish": "التركيّة",
+    "english": "الإنجليزيّة",
+    "arabic": "العربيّة"
+  },
+  "home": {
+    "atlasTitle": "الأطلس",
+    "atlasSubtitle": "موقعُ الحَفريّة — مَراسي الكلمات والأشخاص والكتب",
+    "directoryTitle": "الفهرس",
+    "directorySubtitle": "كلُّ المُدخَلات في المُدوَّنة",
+    "tierShowcase": "مَدخَلٌ مُعالَجٌ بعُمق — طَبَقةُ العَرض",
+    "tierCatalogue": "مَدخَلٌ مُكَثَّف — طَبَقةُ الفِهرِس"
+  },
+  "atlas": {
+    "resetZoom": "إعادةُ التَكبير",
+    "timelineLabel": "الزَّمَن:",
+    "timelineAll": "كُلُّ الأَزمنة",
+    "timelineUpTo": "حتّى {{year}}",
+    "timelineReset": "عَودٌ إلى كُلِّ الأَزمنة",
+    "searchLabel": "ابحَث في الكلمات",
+    "searchPlaceholder": "مثلاً: coffee، admiral، algorithm",
+    "reset": "مَسح",
+    "resetLabel": "مَسحُ المُرَشِّحات",
+    "journeyFilter": "نَمَطُ الرِّحلة",
+    "noMatch": "لا توجد نتائج",
+    "matchCount_one": "نَتيجةٌ واحِدة",
+    "matchCount_other": "{{count}} نَتائِج",
+    "entities": "مَدخَل"
+  },
+  "wordsList": {
+    "subtitle": "كُلُّ الكلماتِ في الأَرشيف.",
+    "count": "{{count}} مادَّة",
+    "sortLabel": "رَتِّب:",
+    "sortAlphabetical": "أبجديًّا",
+    "sortJourney": "وَفقَ النَّمَط",
+    "sortAnchors": "وَفقَ مَسارِ الأَطلَس",
+    "anchorCount": "مَسارٌ على الأَطلَس بِـ {{count}} مَحَطَّات",
+    "anchorSingle": "مَوضِعُ أَطلَسٍ واحِد",
+    "seeAll": "اعرِض الكُلَّ",
+    "filterLabel": "رَشِّح:",
+    "filterAll": "الكُلّ",
+    "filterShowcase": "النَّموذجيّة",
+    "filterCatalogue": "الفِهرس",
+    "countFiltered": "{{shown}} من {{total}} مادَّة"
+  },
+  "personsList": {
+    "subtitle": "كُلُّ الأَشخاصِ في الأَرشيف.",
+    "count": "{{count}} مادَّة",
+    "sortLabel": "رَتِّب:",
+    "sortAlphabetical": "أبجديًّا",
+    "sortLifespan": "وَفقَ سَنواتِ الحياة",
+    "sortAnchors": "وَفقَ مَسارِ الأَطلَس",
+    "anchorCount": "مَسارٌ سِيَريٌّ بِـ {{count}} مَواضِع",
+    "seeAll": "اعرِض الكُلَّ",
+    "filterLabel": "رَشِّح:",
+    "filterAll": "الكُلّ",
+    "filterShowcase": "النَّموذجيّة",
+    "filterCatalogue": "الفِهرس",
+    "countFiltered": "{{shown}} من {{total}} مادَّة"
+  },
+  "booksList": {
+    "subtitle": "كُلُّ الكُتُبِ في الأَرشيف.",
+    "count": "{{count}} مادَّة",
+    "sortLabel": "رَتِّب:",
+    "sortAlphabetical": "أبجديًّا",
+    "sortComposed": "وَفقَ تاريخِ التَّأليف",
+    "sortAnchors": "وَفقَ مَسارِ الأَطلَس",
+    "anchorCount": "مَسارُ مَخطوطاتٍ/تَرجَماتٍ بِـ {{count}} مَواضِع",
+    "seeAll": "اعرِض الكُلَّ",
+    "filterLabel": "رَشِّح:",
+    "filterAll": "الكُلّ",
+    "filterShowcase": "النَّموذجيّة",
+    "filterCatalogue": "الفِهرس",
+    "countFiltered": "{{shown}} من {{total}} مادَّة"
+  },
+  "journeys": {
+    "label": "الرِّحلة",
+    "translator": "دَربُ المُترجِم",
+    "merchant": "قافِلةُ التاجِر",
+    "andalusian": "الرُّسوبُ الأندَلسيّ",
+    "crusader": "ذِكرى الصَّليبيِّ",
+    "astronomer": "ميراثُ الفَلَكيِّ",
+    "alchemist": "مَختَبَرُ الكيميائيِّ",
+    "diplomatic": "المُبادَلةُ الدِّبلوماسيَّة",
+    "indexTitle": "أنماطُ الرِّحلات",
+    "indexSubtitle": "هِجرةُ الكلمةِ بين اللغاتِ لا تَتبَعُ مَسلكاً واحداً؛ بل تَرسُمُ سَبعةُ مَساراتٍ نَمَطيَّةٍ هَيكلَ الحكاية. في القائمةِ أَدناه تَعريفُ كلِّ نَمَطٍ والكَلِماتُ المُرتَبِطةُ به.",
+    "indexBack": "كلُّ الرِّحلات",
+    "wordCount_one": "{{count}} كلمة",
+    "wordCount_other": "{{count}} كلمات",
+    "empty": "لا أَمثلةَ بَعد",
+    "emptyNote": "لم تَدخُل بَعدُ كَلِماتٌ تَتَّبِعُ هذا النَّمَطَ إلى المُدوَّنة. سَتَمتَلِئُ هذه الصَّفحةُ في دَلائمَ تَحريريَّةٍ لاحِقةٍ بمُرَشَّحاتٍ كـ«أميرال» و«حَشَّاشين» و«الدَّبَران».",
+    "colophon": "تَنشَأُ هذه الصَّفحةُ من مَلَفّاتِ MDX تَحتَ /content/journeys/ (الشَّريحة 7/35)؛ المُحتَوى الكامِلُ وَالمَصادِرُ في وَثيقةِ كُلِّ نَموذَجٍ على حِدة."
+  },
+  "about": {
+    "title": "عن المَوقِع",
+    "subtitle": "أُطروحةُ هذا المَشروعِ وَطَريقَتُه وَحالُه الرّاهِنُ — صَفحةٌ واحِدةٌ بِنَفَسِ الكولوفون.",
+    "thesisHead": "هذا المَشروع",
+    "methodHead": "الطَّريقةُ التَّحريريَّة",
+    "stateHead": "ما الذي بَلَغناه",
+    "sourcesHead": "مِعيارُ المَصادِر",
+    "closingHead": "خاتِمةٌ مُختَصَرة",
+    "footerNote": "رِحلة الكَلِمات · جُهدُ بَحثٍ ونَشر · ٢٠٢٦"
+  },
+  "footer": {
+    "about": "عن المَوقِع",
+    "sourceCode": "الشِّفرةُ المَصدَريَّة",
+    "edition": "الإصدار",
+    "colophonMark": "·"
+  },
+  "share": {
+    "share": "شارِكْ هذه الصَّفحة",
+    "copied": "نُسِخَ الرابِط",
+    "shared": "تَمَّتِ المُشارَكة"
+  },
+  "breadcrumb": {
+    "home": "الصَّفحةُ الرَّئيسة",
+    "words": "الكَلِمات",
+    "persons": "الأَشخاص",
+    "books": "الكُتُب",
+    "themes": "المَوضوعات"
+  }
+}

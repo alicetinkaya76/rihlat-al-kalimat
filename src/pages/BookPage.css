@@ -1,0 +1,504 @@
+/* ============================================================================
+   BookPage global styles — al-jabr.html prototipinden alındı.
+   WordPage.css ile shared: stratigrafi şeridi, layer tipografisi, section
+   frame, sources, colophon, reveal animasyonları.
+   PersonPage.css ile shared: .strat-layout--with-aside (3-col), .aside-block
+   ve genel kenar-kolonu paterni, .crosslink ailesi.
+   Burada SADECE book-spesifik bloklar:
+     • .book-header (manuscript-mark, .book-title-arabic, translit, meaning,
+       book-meta, genre-badges, opening-quote)
+     • .book-aside (sticky kenar)
+     • .author-link
+     • .manuscript / .manuscript-* (elyazması kartları)
+     • .translation / .translation-* (tercüme kartları)
+     • .related-words (bottom grid) ve .related-word-card
+   ============================================================================ */
+
+/* ----- BOOK HEADER ----- */
+.book-header {
+  position: relative;
+  padding: var(--space-24) var(--space-8) var(--space-16);
+  border-block-end: 1px solid var(--rule);
+  text-align: center;
+  overflow: hidden;
+}
+.book-header::after {
+  content: "";
+  position: absolute;
+  inset-block-end: -1px;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  inline-size: 120px;
+  block-size: 1px;
+  background: var(--gold);
+  box-shadow: 0 0 0 1px var(--bg);
+}
+
+.manuscript-mark {
+  font-family: var(--arabic);
+  font-size: 1.5rem;
+  color: var(--gold);
+  letter-spacing: 0.5em;
+  margin-block-end: var(--space-6);
+  opacity: 0.7;
+}
+
+.book-title-arabic {
+  font-family: var(--arabic);
+  font-size: clamp(2rem, 6vw, 4.4rem);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.4;
+  margin: 0;
+  letter-spacing: 0;
+  unicode-bidi: isolate;
+  direction: rtl;
+  max-inline-size: 24ch;
+  margin-inline: auto;
+}
+
+.book-title-translit {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  color: var(--fg);
+  font-weight: 400;
+  line-height: 1.4;
+  margin-block-start: var(--space-6);
+  max-inline-size: 60ch;
+  margin-inline: auto;
+}
+[lang="ar"] .book-title-translit {
+  font-family: var(--arabic);
+  font-style: normal;
+  color: var(--fg-muted);
+  font-size: 1.1rem;
+}
+.book-title-translit em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 500;
+}
+[lang="ar"] .book-title-translit em { font-style: normal; }
+
+.book-title-meaning {
+  font-family: var(--serif);
+  font-size: var(--fs-md);
+  color: var(--fg-muted);
+  font-style: italic;
+  line-height: 1.6;
+  margin-block-start: var(--space-4);
+  max-inline-size: 56ch;
+  margin-inline: auto;
+}
+[lang="ar"] .book-title-meaning {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+.book-title-meaning em { font-style: normal; color: var(--accent); }
+
+.book-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  align-items: baseline;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  letter-spacing: 0.04em;
+  margin-block-start: var(--space-12);
+  padding-block-start: var(--space-6);
+  border-block-start: 1px solid var(--rule);
+  max-inline-size: 80ch;
+  margin-inline: auto;
+}
+.book-meta .m {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+.book-meta .m-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+.book-meta .m-value {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--fg);
+  font-weight: 500;
+  unicode-bidi: isolate;
+}
+[lang="ar"] .book-meta .m-value {
+  font-family: var(--arabic);
+  font-style: normal;
+}
+.book-meta .m-value a {
+  color: inherit;
+  text-decoration: none;
+  border-block-end: 1px solid var(--accent);
+  transition: color 0.3s ease;
+}
+.book-meta .m-value a:hover { color: var(--accent); }
+
+.genre-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-start: var(--space-6);
+  justify-content: center;
+}
+.genre-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.3rem 0.7rem 0.32rem;
+  background: transparent;
+  color: var(--accent-2);
+  border: 1px solid var(--accent-2);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+[lang="ar"] .genre-badge {
+  font-family: var(--arabic-ui);
+  font-size: var(--fs-sm);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.genre-badge::before {
+  content: "";
+  inline-size: 5px;
+  block-size: 5px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.opening-quote {
+  margin-block-start: var(--space-10);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--fg-muted);
+  max-inline-size: 60ch;
+  line-height: 1.7;
+  margin-inline: auto;
+  padding-block-start: var(--space-6);
+  border-block-start: 1px dotted var(--rule);
+}
+[lang="ar"] .opening-quote {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: 1.1rem;
+  line-height: 2;
+}
+.opening-quote em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+
+/* ----- BOOK ASIDE (shares .aside-block from PersonPage.css) ----- */
+.book-aside {
+  position: sticky;
+  inset-block-start: 80px;
+  align-self: start;
+  font-family: var(--sans);
+  max-block-size: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+/* Author mini-card in the aside */
+.author-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: var(--space-3) var(--space-4);
+  margin-inline-start: calc(-1 * var(--space-4));
+  border-inline-start: 2px solid var(--gold);
+  background: var(--bg-deep);
+  margin-block-end: var(--space-6);
+  transition: all 0.3s ease;
+}
+.author-link:hover {
+  background: var(--bg);
+  transform: translateX(2px);
+}
+[dir="rtl"] .author-link:hover { transform: translateX(-2px); }
+.author-arabic {
+  font-family: var(--arabic);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.3;
+  unicode-bidi: isolate;
+  display: block;
+  margin-block-end: 2px;
+}
+.author-roman {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--fg);
+  font-weight: 500;
+  display: block;
+}
+[lang="ar"] .author-roman {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--fg-muted);
+}
+.author-note {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  color: var(--fg-muted);
+  margin-block-start: 4px;
+  display: block;
+  line-height: 1.45;
+}
+[lang="ar"] .author-note { font-family: var(--arabic-ui); }
+
+
+/* ----- MANUSCRIPTS ----- */
+.manuscript {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: var(--space-3) var(--space-4);
+  margin-inline-start: calc(-1 * var(--space-4));
+  margin-block-end: var(--space-3);
+  border-inline-start: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+a.manuscript:hover {
+  border-inline-start-color: var(--accent);
+  background: var(--bg-deep);
+}
+.manuscript-shelfmark {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--fg-faint);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+  margin-block-end: 2px;
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+.manuscript-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-sm);
+  color: var(--fg);
+  display: block;
+  line-height: 1.4;
+}
+[lang="ar"] .manuscript-name {
+  font-family: var(--arabic);
+  font-style: normal;
+}
+.manuscript-where {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  color: var(--fg-muted);
+  margin-block-start: 2px;
+  display: block;
+}
+[lang="ar"] .manuscript-where { font-family: var(--arabic-ui); }
+.manuscript-status {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  padding: 2px 6px;
+  margin-block-start: 6px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+.manuscript-status[data-online="full"] {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.manuscript-status[data-online="partial"] {
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+.manuscript-status[data-online="offline"] {
+  color: var(--fg-faint);
+  border-color: var(--rule);
+}
+[lang="ar"] .manuscript-status {
+  font-family: var(--arabic-ui);
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 0.75rem;
+}
+
+
+/* ----- TRANSLATIONS ----- */
+.translation {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: var(--space-3) var(--space-4);
+  margin-inline-start: calc(-1 * var(--space-4));
+  margin-block-end: var(--space-3);
+  border-inline-start: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+a.translation:hover {
+  border-inline-start-color: var(--accent);
+  background: var(--bg-deep);
+}
+.translation-year {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-block-end: 2px;
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+.translation-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-sm);
+  color: var(--fg);
+  display: block;
+  line-height: 1.4;
+}
+[lang="ar"] .translation-name {
+  font-family: var(--arabic);
+  font-style: normal;
+}
+.translation-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+[lang="ar"] .translation-name em { font-style: normal; }
+.translation-by {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  color: var(--fg-muted);
+  margin-block-start: 2px;
+  display: block;
+}
+[lang="ar"] .translation-by { font-family: var(--arabic-ui); }
+
+
+/* ----- RELATED WORDS BOTTOM GRID ----- */
+.related-words {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  max-inline-size: 1400px;
+  margin-inline: auto;
+}
+.related-word-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg-deep);
+  border: 1px solid var(--rule);
+  padding: var(--space-6);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+.related-word-card::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 2px;
+  background: var(--gold);
+  transform-origin: inline-start;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+[dir="rtl"] .related-word-card::before { transform-origin: inline-end; }
+a.related-word-card:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+a.related-word-card:hover::before { transform: scaleX(1); }
+
+.rw-arabic {
+  font-family: var(--arabic);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+  display: block;
+  margin-block-end: var(--space-2);
+  unicode-bidi: isolate;
+}
+.rw-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-lg);
+  color: var(--fg);
+  display: block;
+  margin-block-end: var(--space-3);
+  font-weight: 500;
+}
+[lang="ar"] .rw-title {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-weight: 700;
+}
+.rw-note {
+  font-family: var(--serif);
+  font-size: var(--fs-md);
+  color: var(--fg-muted);
+  line-height: 1.55;
+  display: block;
+  padding-block-start: var(--space-3);
+  border-block-start: 1px dotted var(--rule);
+}
+[lang="ar"] .rw-note {
+  font-family: var(--arabic);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+.rw-note em { font-style: italic; color: var(--fg); }
+[lang="ar"] .rw-note em { font-style: normal; color: var(--accent); }
+
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 1100px) {
+  .book-aside {
+    position: static;
+    max-block-size: none;
+    overflow-y: visible;
+    margin-block-start: var(--space-12);
+    padding-block-start: var(--space-12);
+    border-block-start: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 900px) {
+  .book-aside {
+    grid-template-columns: 1fr;
+  }
+}

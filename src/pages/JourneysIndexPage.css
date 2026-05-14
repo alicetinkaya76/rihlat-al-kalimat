@@ -1,0 +1,167 @@
+/* JourneysIndexPage — 7 arketipin dizin sayfası.
+   ThemePage'in tier-grid kompozisyonuyla benzer sicil; ama renk semantiği
+   JourneyBadge'in moss-yeşili paletinden gelir (§2.3 token). Dilim 7/7.A. */
+
+.journeys-index {
+  max-inline-size: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+  padding-block: var(--space-7) var(--space-8);
+}
+
+.journeys-index-head {
+  margin-block-end: var(--space-7);
+  /* Manuscript başlık şeridi — sayfanın "kapağı". */
+  border-block-end: 1px solid var(--rule);
+  padding-block-end: var(--space-5);
+}
+
+.journeys-index-nav {
+  margin-block-end: var(--space-4);
+}
+
+.journeys-index-back {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+  color: var(--ink-muted, var(--ink));
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.journeys-index-back:hover {
+  opacity: 1;
+  color: var(--moss, var(--accent));
+}
+
+.journeys-index-title {
+  font-family: var(--display, var(--font-serif));
+  font-size: var(--fs-3xl, 2.25rem);
+  font-weight: 400;
+  margin: 0 0 var(--space-3);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.journeys-index-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-md, 1.0625rem);
+  color: var(--ink-muted, var(--ink));
+  opacity: 0.85;
+  max-inline-size: 60ch;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* 7-arketip grid. Mobile'da tek sütun, desktop'ta iki sütun.
+   Tek sütun "3+4 dengesizliği" yaratmasın diye iki sütunda 3+4 değil
+   3+3+1 (son arketip tam genişlikte) düzeni — ya da basit 2-col
+   alfabetik akış. Basit akışı seçiyoruz; kullanıcı arketip-başlığa
+   göre okuyacak. */
+.journeys-index-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 720px) {
+  .journeys-index-list {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6) var(--space-5);
+  }
+}
+
+.journeys-index-item {
+  /* Hiçbir özel stil; içerdeki .journeys-index-card her şeyi sürer. */
+}
+
+.journeys-index-card {
+  display: block;
+  padding: var(--space-5);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  text-decoration: none;
+  background: var(--parchment);
+  transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.journeys-index-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--moss, var(--accent));
+  background: color-mix(in oklab, var(--moss, var(--accent)) 4%, var(--parchment));
+}
+
+.journeys-index-card--empty {
+  /* Henüz Word'ü olmayan arketipler — silik. */
+  opacity: 0.62;
+}
+
+.journeys-index-card--empty:hover {
+  opacity: 0.85;
+}
+
+.journeys-index-card-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-block-end: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.journeys-index-card-mark {
+  color: var(--moss, var(--accent));
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.journeys-index-card-title {
+  font-family: var(--display, var(--font-serif));
+  font-size: var(--fs-xl, 1.5rem);
+  font-weight: 400;
+  margin: 0;
+  flex: 1 1 auto;
+  color: var(--ink);
+}
+
+.journeys-index-card-count {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--moss, var(--accent));
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.journeys-index-card-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ink-muted, var(--ink));
+  opacity: 0.88;
+  margin: 0;
+}
+
+.journeys-index-foot {
+  margin-block-start: var(--space-7);
+  padding-block-start: var(--space-5);
+  border-block-start: 1px solid var(--rule);
+  /* Editöryel not — bu sayfa stub seviyesinde olduğunu söyleyen
+     küçük italik; tasarım disiplinin parçası, yazılı not olarak
+     transparency. */
+}
+
+.journeys-index-note {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.8125rem;
+  color: var(--ink-muted, var(--ink));
+  opacity: 0.65;
+  max-inline-size: 56ch;
+  margin: 0;
+  line-height: 1.5;
+}

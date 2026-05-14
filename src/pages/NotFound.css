@@ -1,0 +1,255 @@
+/* =========================================================================
+   NOTFOUND — Riḥlat al-Kalimāt 404 sayfası (dilim 7/9.C)
+   ----------------------------------------------------------------------
+   Manuscript-and-stratigraphy estetiği. Polish layer'ın ilk gerçek
+   parçası: önceki minimal inline-styled hâl (dilim 1) editöryel sicile
+   uygun değildi; bu sürüm sitenin geri kalanıyla aynı dilde konuşuyor.
+
+   Yapı:
+     • notfound-main: dar (60ch) merkezli kütüphane kart benzeri sütun
+     • notfound-prelabel: "№ 404" — küçük mono catalog numarası, gold
+     • notfound-title: serif/display ana başlık, üç dilde lyrical
+     • notfound-rule: yatay ◇ rule (Stratigraphy motifinin küçük abisi)
+     • notfound-body: serif gövde, manuscript-archive metaforu
+     • notfound-back: sağdaki marjinal not gibi geri-dön linki
+
+   Stratigrafi tonu: bu sayfada *renk yok* (gold ve moss aksanları
+   minimal); sayfa "bir kelimenin arşive girmemiş hâli" — boşluğun
+   görsel argümanı. Bilinçli olarak az şey söylüyor.
+   ========================================================================= */
+
+.notfound-main {
+  inline-size: 100%;
+  max-inline-size: 56ch;
+  margin: 0 auto;
+  padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 4vw, 2rem)
+           clamp(3rem, 8vw, 6rem);
+  text-align: center;
+}
+
+.notfound-prelabel {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-leaf, var(--accent));
+  margin: 0 0 var(--space-6);
+  /* Catalog numarası — kütüphane karta benzer ton. opacity sade
+     dururken hover yok (statik label). */
+  opacity: 0.85;
+}
+
+/* RTL — Arapça numara karakterleri "٤٠٤" letter-spacing'i sevmez */
+[lang="ar"] .notfound-prelabel {
+  letter-spacing: 0.05em;
+  font-family: var(--arabic-ui, var(--mono));
+  font-size: var(--fs-sm);
+}
+
+.notfound-title {
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--ink, var(--fg));
+  /* Letter spacing biraz açık — manuscript headline tipografisi.
+     Negative tracking modern sans-serif paterndir, biz öyle değiliz. */
+  letter-spacing: 0.005em;
+}
+
+[lang="ar"] .notfound-title {
+  font-family: var(--arabic);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* ◇ rule — Stratigraphy stratum-bar motifinin küçük varyantı.
+   Solda + sağda ince çizgi, ortada bir ◇ glyph. Page break,
+   nefes, ayrım. */
+.notfound-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin: var(--space-8) auto;
+  inline-size: 60%;
+  /* Çizginin uçları kısa kalsın — sayfanın kenarına dayanmasın. */
+}
+
+.notfound-rule::before,
+.notfound-rule::after {
+  content: "";
+  flex: 1;
+  block-size: 1px;
+  background: var(--rule, var(--fg-muted));
+  opacity: 0.4;
+}
+
+.notfound-rule-mark {
+  font-size: 0.625rem;
+  color: var(--gold-leaf, var(--accent));
+  opacity: 0.7;
+  /* ◇ glyph — Stratigraphy/ThemeBadges/JourneyBadge ile aynı sembol
+     (◆ pull badges, ◇ rule glyphs — opacity ile ayrışıyor). */
+}
+
+.notfound-body {
+  font-family: var(--serif);
+  font-size: var(--fs-base);
+  line-height: 1.75;
+  color: var(--fg-muted, var(--ink-muted));
+  margin: 0 0 var(--space-10);
+  /* İtalik bir kelime — "perhaps" — vurgu için, ama gövde roman.
+     Manuscript essay tonu. */
+}
+
+[lang="ar"] .notfound-body {
+  font-family: var(--arabic);
+  font-size: var(--fs-md);
+  line-height: 1.95;
+}
+
+.notfound-body em {
+  font-style: italic;
+  color: var(--ink, var(--fg));
+}
+
+[lang="ar"] .notfound-body em {
+  /* Amiri italik desteklemez — bold ile vurgu daha iyi okunur Arapça'da */
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* ----- Did-you-mean suggestions (dilim 7/19.ι.B) -------------------------
+   Body'den sonra, back-link'ten önce. Marjinal-not sicili: küçük punto,
+   muted, ama tıklanabilir. Liste düz — bullet yok, ◇ ayraç manuscript
+   uyumu. */
+.notfound-suggestions {
+  margin: 0 0 var(--space-10);
+  padding-block: var(--space-4);
+  border-block: 1px solid var(--rule);
+  max-inline-size: 56ch;
+  margin-inline: auto;
+}
+
+.notfound-suggestions-head {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-sm);
+  color: var(--fg-faint);
+  margin: 0 0 var(--space-3);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+[lang="ar"] .notfound-suggestions-head {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: var(--fs-base);
+}
+
+.notfound-sugg-mark {
+  display: inline-block;
+  margin-inline-start: var(--space-2);
+  color: var(--gold);
+  opacity: 0.65;
+  font-size: 0.85em;
+}
+
+.notfound-suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.notfound-suggestion {
+  /* her satır müstakil — yatay düz layout, manuscript-list disiplini */
+  font-family: var(--serif);
+  font-size: var(--fs-base);
+}
+
+[lang="ar"] .notfound-suggestion {
+  font-family: var(--arabic);
+  font-size: var(--fs-md);
+}
+
+.notfound-suggestion-link {
+  color: var(--fg, var(--ink));
+  text-decoration: none;
+  padding-block-end: 1px;
+  border-block-end: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.notfound-suggestion-link:hover,
+.notfound-suggestion-link:focus-visible {
+  border-block-end-color: var(--accent);
+  color: var(--accent);
+  outline: none;
+}
+
+.notfound-suggestion-slug {
+  font-style: italic;
+}
+
+[lang="ar"] .notfound-suggestion-slug {
+  font-style: normal;
+}
+
+.notfound-suggestion-type {
+  color: var(--fg-faint);
+  font-size: var(--fs-sm);
+  font-style: normal;
+}
+
+[lang="ar"] .notfound-suggestion-type {
+  font-size: var(--fs-base);
+}
+
+.notfound-back {
+  display: inline-block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-sm);
+  color: var(--moss, var(--accent));
+  text-decoration: none;
+  padding-block-end: 2px;
+  border-block-end: 1px solid transparent;
+  transition: border-color 0.25s ease, color 0.25s ease;
+  /* Marjinal not sicili — italik serif, küçük punto, ince çizgi.
+     Manuscript margin annotation. */
+}
+
+[lang="ar"] .notfound-back {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: var(--fs-base);
+}
+
+.notfound-back:hover,
+.notfound-back:focus-visible {
+  border-block-end-color: var(--moss, var(--accent));
+  color: var(--ink, var(--fg));
+}
+
+.notfound-back:focus-visible {
+  outline: 2px solid var(--moss, var(--accent));
+  outline-offset: 4px;
+}
+
+/* ----- Mobile ----- */
+@media (max-inline-size: 640px) {
+  .notfound-main {
+    padding-block-start: clamp(3rem, 12vh, 5rem);
+  }
+  .notfound-rule {
+    inline-size: 50%;
+    margin-block: var(--space-6);
+  }
+}

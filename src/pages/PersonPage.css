@@ -1,0 +1,433 @@
+/* ============================================================================
+   PersonPage global styles — al-khwarizmi.html prototipinden alındı.
+   WordPage.css ile shared: stratigrafi şeridi, layer tipografisi, section
+   frame, sources, colophon, reveal animasyonları.
+   Burada SADECE person-spesifik bloklar:
+     • .person-header (ve alt elemanları)
+     • .strat-layout--with-aside (3 kolonlu varyant)
+     • .person-aside (kenar kolonu)
+     • .aside-block / .aside-title / .crosslink* (kart dizgisi)
+     • .contemporaries / .contemp* (etki halkası grid'i)
+   ============================================================================ */
+
+/* ----- PERSON HEADER ----- */
+.person-header {
+  position: relative;
+  padding: var(--space-24) var(--space-8) var(--space-16);
+  border-block-end: 1px solid var(--rule);
+  overflow: hidden;
+}
+.person-header::after {
+  /* Decorative gold rule under the header (mirrors .word-header::after) */
+  content: "";
+  position: absolute;
+  inset-block-end: -1px;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  inline-size: 120px;
+  block-size: 1px;
+  background: var(--gold);
+  box-shadow: 0 0 0 1px var(--bg);
+}
+[lang="ar"] .person-header::after { transform: translateX(50%); }
+
+.person-name-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: end;
+  max-inline-size: 1100px;
+}
+
+.person-name-block .person-roman {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--fg);
+}
+.person-name-block .person-roman em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.person-name-arabic {
+  font-family: var(--arabic);
+  font-size: clamp(2.2rem, 6vw, 4.4rem);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: 0;
+  unicode-bidi: isolate;
+}
+
+/* AR UI inversion: Arabic name takes the visual primary role; the Latin
+   romanName drops to a small italic transliteration (the "Latin echo"). */
+[lang="ar"] .person-name-block .person-roman {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  color: var(--fg-muted);
+  font-style: italic;
+  font-weight: 400;
+}
+[lang="ar"] .person-name-arabic {
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+
+.person-tr-form {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-lg);
+  color: var(--fg-muted);
+  margin-block-start: var(--space-2);
+}
+[lang="ar"] .person-tr-form {
+  font-family: var(--arabic);
+  font-style: normal;
+}
+.person-tr-form em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 500;
+}
+[lang="ar"] .person-tr-form em { font-style: normal; }
+
+.person-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  letter-spacing: 0.04em;
+  margin-block-start: var(--space-8);
+  padding-block-start: var(--space-6);
+  border-block-start: 1px solid var(--rule);
+  max-inline-size: 70ch;
+}
+.person-meta .m {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.person-meta .m-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+.person-meta .m-value {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--fg);
+  font-weight: 500;
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+[lang="ar"] .person-meta .m-value {
+  direction: rtl;
+  font-family: var(--arabic);
+  font-style: normal;
+}
+
+.role-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-start: var(--space-6);
+}
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.3rem 0.7rem 0.32rem;
+  background: transparent;
+  color: var(--accent-2);
+  border: 1px solid var(--accent-2);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.role-badge[lang="ar"] {
+  font-family: var(--arabic-ui);
+  font-size: var(--fs-sm);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.role-badge::before {
+  content: "";
+  inline-size: 5px;
+  block-size: 5px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* The "literal meaning" pull-quote about the nisba */
+.nisba-quote {
+  margin-block-start: var(--space-8);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-lg);
+  color: var(--fg-muted);
+  max-inline-size: 60ch;
+  line-height: 1.5;
+  border-inline-start: 2px solid var(--gold);
+  padding-inline-start: var(--space-4);
+}
+[lang="ar"] .nisba-quote {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: 1.25rem;
+}
+.nisba-quote em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+
+/* ----- 3-COL STRATIGRAPHY LAYOUT (with aside) ----- */
+/* Override the 2-col .strat-layout from WordPage.css to add an aside col. */
+.strat-layout--with-aside {
+  grid-template-columns: 130px minmax(0, 1fr) 280px;
+  max-inline-size: 1500px;
+}
+
+
+/* ----- PERSON ASIDE ----- */
+.person-aside {
+  position: sticky;
+  inset-block-start: 80px;
+  align-self: start;
+  font-family: var(--sans);
+}
+.aside-block {
+  margin-block-end: var(--space-12);
+  padding-inline-start: var(--space-4);
+  border-inline-start: 1px solid var(--rule);
+}
+.aside-block:last-child { margin-block-end: 0; }
+.aside-title {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin: 0 0 var(--space-4);
+}
+[lang="ar"] .aside-title {
+  font-family: var(--arabic-ui);
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.crosslink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: var(--space-3) var(--space-4);
+  margin-inline-start: calc(-1 * var(--space-4));
+  margin-block-end: var(--space-2);
+  border-inline-start: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.crosslink:hover {
+  border-inline-start-color: var(--accent);
+  background: var(--bg-deep);
+  transform: translateX(2px);
+}
+[dir="rtl"] .crosslink:hover { transform: translateX(-2px); }
+
+.crosslink-arabic {
+  font-family: var(--arabic);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.3;
+  unicode-bidi: isolate;
+  display: block;
+  margin-block-end: 2px;
+}
+.crosslink-roman {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--fg);
+  font-weight: 500;
+  display: block;
+}
+[lang="ar"] .crosslink-roman {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-weight: 400;
+  font-size: var(--fs-base);
+  color: var(--fg-muted);
+}
+.crosslink-note {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  color: var(--fg-muted);
+  line-height: 1.4;
+  margin-block-start: 4px;
+  display: block;
+}
+[lang="ar"] .crosslink-note { font-family: var(--arabic-ui); }
+.crosslink-note em { font-style: italic; color: var(--fg); }
+[lang="ar"] .crosslink-note em { font-style: normal; color: var(--accent); }
+
+.crosslink-placeholder {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  margin-inline-start: calc(-1 * var(--space-4));
+  margin-block-end: var(--space-2);
+  border-inline-start: 2px solid transparent;
+  opacity: 0.55;
+  cursor: default;
+  position: relative;
+}
+.crosslink-placeholder::after {
+  content: "·· · ·";
+  position: absolute;
+  inset-block-start: var(--space-3);
+  inset-inline-end: var(--space-3);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--fg-faint);
+  letter-spacing: 0.2em;
+}
+
+
+/* ----- CONTEMPORARIES (inheritance-line grid) ----- */
+.contemporaries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  max-inline-size: 1400px;
+  margin-inline: auto;
+}
+
+.contemp {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg-deep);
+  border: 1px solid var(--rule);
+  padding: var(--space-6);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+.contemp::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 2px;
+  background: var(--gold);
+  transform-origin: inline-start;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+[dir="rtl"] .contemp::before { transform-origin: inline-end; }
+.contemp:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.contemp:hover::before { transform: scaleX(1); }
+
+.contemp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-block-end: var(--space-3);
+  gap: var(--space-3);
+}
+.contemp-title {
+  font-family: var(--serif);
+  font-size: var(--fs-xl);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--fg);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+[lang="ar"] .contemp-title {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-weight: 700;
+}
+.contemp-arabic {
+  font-family: var(--arabic);
+  font-size: 1.35rem;
+  color: var(--accent);
+  font-weight: 700;
+  unicode-bidi: isolate;
+}
+.contemp-years {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--fg-muted);
+  letter-spacing: 0.05em;
+  margin: 0 0 var(--space-3);
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+.contemp-note {
+  font-family: var(--serif);
+  font-size: var(--fs-md);
+  color: var(--fg-muted);
+  line-height: 1.55;
+  margin-block-start: var(--space-3);
+  padding-block-start: var(--space-3);
+  border-block-start: 1px dotted var(--rule);
+}
+[lang="ar"] .contemp-note {
+  font-family: var(--arabic);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+.contemp-note em {
+  font-style: italic;
+  color: var(--fg);
+}
+[lang="ar"] .contemp-note em { font-style: normal; color: var(--accent); }
+
+
+/* ----- RESPONSIVE: aside collapses to bottom on narrower screens ----- */
+@media (max-width: 1100px) {
+  .strat-layout--with-aside {
+    grid-template-columns: 130px 1fr;
+  }
+  .person-aside {
+    grid-column: 1 / -1;
+    position: static;
+    margin-block-start: var(--space-12);
+    padding-block-start: var(--space-12);
+    border-block-start: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+  }
+  .aside-block { margin: 0; }
+}
+
+@media (max-width: 900px) {
+  .strat-layout--with-aside {
+    grid-template-columns: 1fr;
+  }
+  .person-aside {
+    grid-template-columns: 1fr;
+  }
+}

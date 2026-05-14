@@ -1,0 +1,202 @@
+/* ───────────────────────────────────────────────────────────────────
+   LeafletAtlas — full atlas markers + popups
+   Dilim 7/42.σ-prime
+   ─────────────────────────────────────────────────────────────────── */
+
+.rihla-atlas {
+  margin: 1rem 0 2rem;
+  padding: 8px;
+  background: var(--color-paper, #f5ebd5);
+  border: 1px solid var(--color-ink-faded, #8a7a5c);
+  box-shadow:
+    inset 0 0 0 1px var(--color-paper, #f5ebd5),
+    inset 0 0 0 2px var(--color-ink-faded, #8a7a5c),
+    0 3px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rihla-atlas .leaflet-container {
+  background: #e8dcc0;
+  font-family: var(--font-serif, 'EB Garamond', Garamond, serif);
+}
+
+/* ── Yer marker'ı — entity sayısına göre büyür ───────────────────── */
+
+.rihla-place-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.rihla-place-marker-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-paper, #f5ebd5);
+  border: 2px solid var(--color-accent, #8b3a2f);
+  border-radius: 50%;
+  color: var(--color-ink, #2a2620);
+  font-family: var(--font-serif, 'EB Garamond', Garamond, serif);
+  font-weight: 600;
+  line-height: 1;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
+}
+
+.rihla-place-marker:hover .rihla-place-marker-inner {
+  transform: scale(1.1);
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+/* ── Tooltip (hover) — hızlı şehir bilgisi ─────────────────────────── */
+
+.rihla-atlas-tooltip {
+  font-size: 13px;
+  color: var(--color-ink, #2a2620);
+}
+
+.rihla-atlas-tooltip strong {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.rihla-atlas-tooltip-region {
+  color: var(--color-ink-faded, #6a6555);
+  font-style: italic;
+  font-size: 12px;
+}
+
+.rihla-atlas-tooltip-count {
+  margin-top: 3px;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--color-accent, #8b3a2f);
+  text-transform: uppercase;
+}
+
+/* ── Popup (click) — entity listesi ─────────────────────────────────── */
+
+.leaflet-popup-content-wrapper {
+  background: var(--color-paper, #f5ebd5) !important;
+  border: 1px solid var(--color-ink-faded, #8a7a5c) !important;
+  border-radius: 2px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--color-paper, #f5ebd5) !important;
+  border: 1px solid var(--color-ink-faded, #8a7a5c) !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px !important;
+  font-family: var(--font-serif, 'EB Garamond', Garamond, serif);
+  color: var(--color-ink, #2a2620);
+  line-height: 1.45;
+}
+
+.rihla-atlas-popup-name {
+  margin: 0 0 2px 0;
+  font-family: var(--font-serif, 'EB Garamond', Garamond, serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink, #2a2620);
+}
+
+.rihla-atlas-popup-region {
+  font-style: italic;
+  font-size: 12px;
+  color: var(--color-ink-faded, #6a6555);
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--color-ink-faded, #8a7a5c);
+}
+
+.rihla-atlas-popup-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.rihla-atlas-popup-list li {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.rihla-atlas-popup-link {
+  color: var(--color-accent, #8b3a2f);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dotted transparent;
+  transition: border-color 0.15s;
+}
+
+.rihla-atlas-popup-link:hover {
+  border-bottom-color: var(--color-accent, #8b3a2f);
+}
+
+/* Entity-tipi göstergesi (rengi soluk olsun, asıl vurgu link'te) */
+.rihla-atlas-popup-link.type-word::before {
+  content: '◇ ';
+  color: var(--color-ink-faded, #8a7a5c);
+}
+
+.rihla-atlas-popup-link.type-person::before {
+  content: '◯ ';
+  color: var(--color-ink-faded, #8a7a5c);
+}
+
+.rihla-atlas-popup-link.type-book::before {
+  content: '▭ ';
+  color: var(--color-ink-faded, #8a7a5c);
+}
+
+.rihla-atlas-popup-link.type-theme::before {
+  content: '◆ ';
+  color: var(--color-ink-faded, #8a7a5c);
+}
+
+.rihla-atlas-popup-sub {
+  font-style: italic;
+  color: var(--color-ink-faded, #6a6555);
+  font-size: 11px;
+}
+
+/* RTL Arapça için yön düzeltmesi */
+[dir='rtl'] .rihla-atlas .leaflet-container {
+  direction: ltr;
+}
+
+/* ── Dilim 7/43 — filter dimmed variant ─────────────────────────────── */
+
+.rihla-place-marker--dimmed .rihla-place-marker-inner {
+  border-color: var(--color-ink-faded, #8a7a5c);
+  opacity: 0.55;
+  filter: saturate(0.4);
+}
+
+.rihla-place-marker--dimmed:hover .rihla-place-marker-inner {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.08);
+}
+
+.rihla-atlas-popup-link--highlighted {
+  background: var(--color-accent-soft, #d4b896);
+  padding: 2px 6px;
+  margin: -2px -2px;
+  border-radius: 2px;
+  font-weight: 600;
+}

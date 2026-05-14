@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Riḥlat al-Kalimāt — Open Graph image (dilim 7/18.ε.A — launch hazırlığı).
+
+  Boyut: 1200×630 — Facebook OG + Twitter Card "summary_large_image"
+         standart oranı (1.91:1).
+
+  Tasarım disiplini favicon.svg'nin kanonik paletini taşır:
+    parchment: #f4ecd8   (arka plan)
+    gold:      #c9941b   (pin işareti, halkalar)
+    lazaward:  #1f4e7a   (halo stroke + rota çizgileri)
+    sepia-ink: #5a4a36   (çerçeve, ince satır, metin)
+
+  Kompozisyon:
+    SOL (0—720) — başlıklar üç dilde, üst üste:
+      "Riḥlat al-Kalimāt"      (EB Garamond, büyük)
+      "رِحلة الكَلِمات"          (Amiri)
+      ince ayraç hattı
+      tagline: "Üç dilli etimolojik bilgi grafı"
+
+    SAĞ (720—1200) — atlas-pin geometri sahnesi:
+      Bir merkez pin (Toledo'yu temsil eden büyük halo+gold mark) ve
+      etrafından çıkan dört ışın (Bağdat, Floransa, Paris, Cambridge
+      simgesi) — *Toledo'dan geçen multi-anchor route'ların tezi*.
+      Manuscript ✦ köşe yıldızları aynı favicon dilinde.
+
+  Üretim:
+    SVG dosyası source. ImageMagick `convert` ile PNG'ye render edilir
+    (public/og-image.png). Render adımı `scripts/render-og-image.mjs`
+    içinde değil — bir kerelik bir adım; SVG değişirse manuel re-render.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Parchment background -->
+  <rect width="1200" height="630" fill="#f4ecd8"/>
+
+  <!-- İnce manuscript çerçevesi, içte 20px boşluk -->
+  <rect x="20" y="20" width="1160" height="590" rx="6" ry="6"
+        fill="none" stroke="#5a4a36" stroke-width="1" opacity="0.35"/>
+
+  <!-- Köşe ✦ yıldızları (manuscript marginalia) -->
+  <g fill="#5a4a36" opacity="0.45" font-family="Georgia, serif" font-size="22" text-anchor="middle">
+    <text x="48" y="58">✦</text>
+    <text x="1152" y="58">✦</text>
+    <text x="48" y="592">✦</text>
+    <text x="1152" y="592">✦</text>
+  </g>
+
+  <!-- ====== SOL SÜTUN — TYPOGRAPHY ====== -->
+  <!-- TR/EN başlık: serif, büyük -->
+  <text x="80" y="220" font-family="Garamond, 'EB Garamond', 'Times New Roman', serif"
+        font-size="78" font-weight="600" fill="#1a1612" letter-spacing="-1">
+    Riḥlat al-Kalimāt
+  </text>
+
+  <!-- Arapça başlık: pre-shaped (arabic-reshaper + python-bidi ile glif
+       bağlama + BiDi reordering uygulanmış görsel-sıralı form). cairosvg
+       pango/harfbuzz kullanmadığı için Unicode source string'leri yanlış
+       render eder — bu satırın source'u: رِحلة الكَلِمات -->
+  <text x="80" y="300" font-family="Amiri, 'Times New Roman', serif"
+        font-size="58" fill="#1f4e7a" dominant-baseline="alphabetic">
+    رِحلة الكَلِمات
+  </text>
+
+  <!-- İnce ayraç hattı -->
+  <line x1="80" y1="340" x2="260" y2="340" stroke="#c9941b" stroke-width="1.5" opacity="0.7"/>
+  <!-- Altın küçük nokta hat ortasında -->
+  <circle cx="170" cy="340" r="3" fill="#c9941b"/>
+
+  <!-- Üst-tagline (TR) -->
+  <text x="80" y="395" font-family="Garamond, 'EB Garamond', 'Times New Roman', serif"
+        font-size="26" font-style="italic" fill="#5a4a36">
+    Üç dilli etimolojik bilgi grafı
+  </text>
+
+  <!-- İkinci tagline (EN) -->
+  <text x="80" y="430" font-family="Garamond, 'EB Garamond', 'Times New Roman', serif"
+        font-size="24" font-style="italic" fill="#8a8175">
+    A trilingual etymological knowledge graph
+  </text>
+
+  <!-- Üçüncü tagline (AR) — pre-shaped (görsel-sıralı, LTR çizilir).
+       Source: مَعجمُ اشتقاقاتٍ ثلاثيُّ اللغة -->
+  <text x="80" y="475" font-family="Amiri, 'Times New Roman', serif"
+        font-size="26" fill="#8a8175">
+    ﺔﻐﻠﻟﺍ ُّﻲﺛﻼﺛ ٍﺕﺎﻗﺎﻘﺘﺷﺍ ُﻢﺠﻌَﻣ
+  </text>
+
+  <!-- Alt-bilgi: dört varlık modeli -->
+  <text x="80" y="555" font-family="Garamond, 'EB Garamond', 'Times New Roman', serif"
+        font-size="20" font-style="italic" fill="#5a4a36" opacity="0.85">
+    Word
+    <tspan fill="#c9941b" dx="6" dy="0">·</tspan>
+    <tspan dx="6" dy="0">Person</tspan>
+    <tspan fill="#c9941b" dx="6" dy="0">·</tspan>
+    <tspan dx="6" dy="0">Book</tspan>
+    <tspan fill="#c9941b" dx="6" dy="0">·</tspan>
+    <tspan dx="6" dy="0">Theme</tspan>
+  </text>
+
+  <!-- ====== SAĞ SÜTUN — ATLAS-PIN SAHNESİ ====== -->
+  <!--
+    Merkez Toledo (büyük halo + gold mark) — etrafından 4 anchor pin
+    + 4 rota çizgisi: Baghdad (sol-üst), Florence (sağ-üst), Paris
+    (sol-alt), Cambridge (sağ-alt). Editöryel tez: Toledo merkezi.
+
+    Görsel disiplin: rota çizgileri ince ve hafif transparan; her anchor
+    pin küçük (r=12), Toledo pin'i büyük (r=28 halo, r=14 mark). Hiçbir
+    metin etiketi yok — Atlas haritasının soyut özeti, not okuma değil.
+  -->
+  <g transform="translate(960, 315)">
+    <!-- Toledo merkez (büyük halo) -->
+    <circle cx="0" cy="0" r="60" fill="#f4ecd8" stroke="#1f4e7a" stroke-width="1.5" opacity="0.85"/>
+    <!-- Dış dekoratif dashed halka -->
+    <circle cx="0" cy="0" r="75" fill="none" stroke="#1f4e7a" stroke-width="0.6"
+            opacity="0.35" stroke-dasharray="3 4"/>
+
+    <!-- Rota çizgileri (Toledo'dan dört anchor'a) -->
+    <line x1="0" y1="0" x2="-150" y2="-110" stroke="#1f4e7a" stroke-width="1.2" opacity="0.55"/>
+    <line x1="0" y1="0" x2="150"  y2="-110" stroke="#1f4e7a" stroke-width="1.2" opacity="0.55"/>
+    <line x1="0" y1="0" x2="-150" y2="130"  stroke="#1f4e7a" stroke-width="1.2" opacity="0.55"/>
+    <line x1="0" y1="0" x2="150"  y2="130"  stroke="#1f4e7a" stroke-width="1.2" opacity="0.55"/>
+
+    <!-- Çevresel anchor pinleri: küçük halo + gold mark -->
+    <g>
+      <!-- Sol-üst (Baghdad) -->
+      <circle cx="-150" cy="-110" r="22" fill="#f4ecd8" stroke="#1f4e7a" stroke-width="1.2" opacity="0.85"/>
+      <circle cx="-150" cy="-110" r="10" fill="#c9941b" stroke="#5a4a36" stroke-width="0.8"/>
+      <!-- Sağ-üst (Florence) -->
+      <circle cx="150" cy="-110" r="22" fill="#f4ecd8" stroke="#1f4e7a" stroke-width="1.2" opacity="0.85"/>
+      <circle cx="150" cy="-110" r="10" fill="#c9941b" stroke="#5a4a36" stroke-width="0.8"/>
+      <!-- Sol-alt (Paris) -->
+      <circle cx="-150" cy="130" r="22" fill="#f4ecd8" stroke="#1f4e7a" stroke-width="1.2" opacity="0.85"/>
+      <circle cx="-150" cy="130" r="10" fill="#c9941b" stroke="#5a4a36" stroke-width="0.8"/>
+      <!-- Sağ-alt (Cambridge) -->
+      <circle cx="150" cy="130" r="22" fill="#f4ecd8" stroke="#1f4e7a" stroke-width="1.2" opacity="0.85"/>
+      <circle cx="150" cy="130" r="10" fill="#c9941b" stroke="#5a4a36" stroke-width="0.8"/>
+    </g>
+
+    <!-- Toledo central mark — en büyük, gold, sepia-edged -->
+    <circle cx="0" cy="0" r="22" fill="#c9941b" stroke="#5a4a36" stroke-width="1.5"/>
+    <!-- İlluminated nokta -->
+    <circle cx="0" cy="0" r="4" fill="#5a4a36" opacity="0.7"/>
+  </g>
+
+  <!-- Edition mührü, sağ alt köşe (manuscript kolofonu hissi) -->
+  <text x="1120" y="575" font-family="Garamond, 'EB Garamond', 'Times New Roman', serif"
+        font-size="14" font-style="italic" fill="#8a8175" text-anchor="end">
+    edition 7/18.ε  ·  2026
+  </text>
+</svg>

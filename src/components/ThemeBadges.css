@@ -1,0 +1,136 @@
+/* ─────────────────────────────────────────────────────────────────
+   THEMEBADGES — entity → theme geri-bağlantı UI
+   ─────────────────────────────────────────────────────────────────
+   İki varyant:
+     • .theme-badges--inline  — WordPage header sonrası ince yatay şerit
+     • .theme-badges--aside   — PersonPage / BookPage aside (.aside-block)
+
+   Pill badge:
+     • .theme-badge--magnum   — gold accent (--gold)
+     • .theme-badge--cluster  — lazaward accent (--accent-2)
+   Tier ayrımı sol-iç border + işaret rozeti rengi ile gösterilir.
+
+   Logical properties (`-inline-start`, `-block-end`) RTL/LTR dengeyi
+   tek tanımda kapsar; ayrı dir="rtl" override'ı gerekmiyor.
+   ─────────────────────────────────────────────────────────────────── */
+
+/* ── Ortak: pill badge ──────────────────────────────────────────── */
+
+.theme-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.6rem;
+  text-decoration: none;
+  color: var(--fg);
+  background: var(--bg-deep);
+  border: 1px solid var(--rule);
+  border-inline-start-width: 3px;
+  border-radius: 2px;
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  transition: background 0.25s ease, border-color 0.25s ease,
+    transform 0.25s ease;
+  white-space: nowrap;
+}
+.theme-badge:hover {
+  background: var(--bg);
+  transform: translateY(-1px);
+}
+
+.theme-badge-mark {
+  font-size: 0.7rem;
+  line-height: 1;
+  opacity: 0.85;
+  flex: none;
+}
+.theme-badge-title {
+  font-style: italic;
+}
+[lang="ar"] .theme-badge {
+  font-family: var(--arabic-serif, var(--serif));
+  font-size: 0.95rem;
+}
+[lang="ar"] .theme-badge-title {
+  font-style: normal;
+}
+
+/* Tier renklendirme — sol-iç border + rozet rengi */
+.theme-badge--magnum {
+  border-inline-start-color: var(--gold);
+}
+.theme-badge--magnum .theme-badge-mark {
+  color: var(--gold);
+}
+.theme-badge--magnum:hover {
+  border-color: var(--gold);
+}
+
+.theme-badge--cluster {
+  border-inline-start-color: var(--accent-2);
+}
+.theme-badge--cluster .theme-badge-mark {
+  color: var(--accent-2);
+}
+.theme-badge--cluster:hover {
+  border-color: var(--accent-2);
+}
+
+/* ── Inline varyant (Word page) ──────────────────────────────────── */
+
+.theme-badges--inline {
+  max-inline-size: 70ch;
+  margin: 0 auto;
+  padding: var(--space-3) 2rem var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.75rem;
+  border-block-end: 1px solid var(--rule-soft, var(--rule));
+}
+.theme-badges--inline .theme-badges-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--fg-muted);
+  margin-inline-end: 0.25rem;
+}
+[lang="ar"] .theme-badges--inline .theme-badges-label {
+  font-family: var(--arabic-ui);
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  text-transform: none;
+}
+.theme-badges--inline .theme-badges-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ── Aside varyant (Person + Book pages) ─────────────────────────── */
+
+/* .aside-block + .aside-title PersonPage.css'den miras alınıyor;
+   buradaki tek görev iç liste düzeni. */
+.theme-badges--aside .theme-badges-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.theme-badges--aside .theme-badge {
+  white-space: normal; /* aside dar — başlık iki satıra düşebilsin */
+  align-items: flex-start;
+}
+.theme-badges--aside .theme-badge-title {
+  line-height: 1.35;
+}
+
+/* ── Mobil (tek-kolon) ───────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .theme-badges--inline {
+    padding-inline: 1.5rem;
+  }
+}

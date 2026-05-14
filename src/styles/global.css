@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   GLOBAL · base reset, body, kâğıt-grain örtüsü
+   tokens.css ÖNCE yüklenmeli (main.tsx'te öyle).
+   ========================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  line-height: 1.65;
+  font-feature-settings: 'kern', 'liga', 'calt';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Kâğıt grain — sabit, fare-geçmez, light/dark için blend modu farklı.
+   Kaynak: algorithm.html / al-khwarizmi.html prototiplerinin body::before'u. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 200;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
+  transition: opacity 0.5s ease;
+}
+
+[data-theme='dark'] body::before {
+  mix-blend-mode: screen;
+}
+
+/* Arapça vücut metni — i18next + lang attr ile birlikte tetiklenir. */
+[lang='ar'] body,
+[lang='ar'] .arabic-body {
+  font-family: var(--arabic);
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+/* Inline dil-içi karışım: Latin paragrafta Arapça parça, Arap paragrafta Latin parça. */
+[lang='ar'] .latin-inline {
+  font-family: var(--serif);
+  font-size: 0.95em;
+}
+.arabic-inline {
+  font-family: var(--arabic);
+  font-size: 1.05em;
+}
+
+/* =========================================================================
+   PAGE-ENTER ANIMATION (dilim 7/11.A)
+   ----------------------------------------------------------------------
+   Her route mount'unda gösterilen <main> elementi hafif fade-in + 8px
+   aşağıdan-yukarı kayma alır. Manuscript-feel: yavaş kâğıt yatışı,
+   kitap sayfası çevriliyor hissi — ama subtle, dikkat dağıtmayan.
+
+   Karakteristikler:
+     • 350ms duration — fark edilir ama gecikme hissi yok
+     • cubic-bezier(0.4, 0, 0.2, 1) — Material-design standard ease-out
+     • opacity 0 → 1 + translateY 8px → 0 — minimal kinetik
+     • `both` fill-mode — başlangıç durumu animasyon bitene kadar tutulur
+
+   Tetikleme: her `<main>` mount'unda CSS native animation kuralı çalışır.
+   Aynı `<main>` DOM node'u yeni props/params alırsa (örn. /word/A → /word/B,
+   WordPage aynı kalır) animasyon ÇALIŞMAZ — bu kasıtlı, content swap
+   instantane hissedilsin. Entity-type değişimlerinde (örn. /word/A →
+   /person/B) <main> remount olur, animasyon çalışır.
+
+   prefers-reduced-motion: yukarıdaki universal selector kuralı (satır 73)
+   tüm animation-duration'ları 0.01ms'e indiriyor — bu kural otomatik
+   olarak nötrleşir. Ek bir override gerekmez.
+
+   Etki kapsamı: HomePage, WordPage, PersonPage, BookPage, ThemePage,
+   JourneysIndexPage, JourneyPage, WordsListPage, NotFound,
+   ManuscriptLoader (Suspense fallback), EntityNotFound — semantic HTML
+   konvansiyonu gereği bir sayfada tek bir <main> bulunmalı; bu kural
+   her sayfanın tek <main>'ine değer.
+   ========================================================================= */
+
+main {
+  animation: page-enter 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Erişilebilirlik */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.1s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* React Router'ın varsayılan focus-outline'ı — token'a uydur. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

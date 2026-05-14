@@ -1,0 +1,149 @@
+/* =========================================================================
+   ETYMOLOGY TREE — Word sayfasında köken ağacı bölümü
+   ----------------------------------------------------------------------
+   Mimari notlar:
+   • Bölüm başlığı (.section-head, .section-num, .section-title) WordPage.css'in
+     SECTION FRAME bloğundan miras — buraya tekrar yazılmıyor.
+   • Tüm renkler --gold / --rule / --fg / --fg-muted / --fg-faint token'lardan;
+     dark tema kendi devraladığı için ek bir [data-theme='dark'] kuralı yok.
+   • Tipografi WordPage'in genel sicili: serif label, mono küçük-uppercase
+     dil etiketi, mono italic yıl.
+   • SVG container yatay overflow-auto: dar viewport'larda ağaç kaymadan
+     dürülerek görünür (ResizeObserver minimum sütun genişliğini korur).
+   ========================================================================= */
+
+/* ----- Bölüm wrapper — section frame WordPage.css'den geliyor ----- */
+.etymology-section {
+  /* `.section` zaten max-inline-size: 1400px + auto margin veriyor. */
+}
+
+/* ----- Tree container — overflow yatay ----- */
+.etymology-tree-wrap {
+  inline-size: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Gentle horizontal scrollbar styling — paste over var(--bg-deep) for
+     manuscript-feel rather than the system white scrollbar. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+  /* Container rule overhead: minimal vertical padding ("breathing room"
+     between section-head's gold rule and the tree itself). */
+  padding-block-start: var(--space-2);
+}
+.etymology-tree-wrap::-webkit-scrollbar {
+  block-size: 6px;
+}
+.etymology-tree-wrap::-webkit-scrollbar-thumb {
+  background: var(--rule);
+  border-radius: 3px;
+}
+.etymology-tree-wrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Container ilk frame'de ölçülürken kısa süre 0 yüksekte kalmasın diye
+   minimum yer-tutucu blok. */
+.etymology-tree-placeholder {
+  block-size: 320px;
+  inline-size: 100%;
+}
+
+/* ----- SVG tree ----- */
+.etymology-tree {
+  display: block;
+  /* SVG kendisi container'dan geniş olabilir (overflow scroll). */
+  min-inline-size: 100%;
+}
+
+/* ----- Connectors (bezier paths) ----- */
+.etymology-link {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1;
+  stroke-linecap: round;
+  /* Hafif şeffaflık manuscript-mürekkep hissi için. */
+  opacity: 0.85;
+}
+
+/* ----- Node circle ----- */
+.etymology-node-mark {
+  fill: var(--gold);
+  stroke: var(--bg);
+  stroke-width: 2;
+  /* Light/dark arasında daire dışındaki "ring" arkaplan rengiyle aynı —
+     daire arkaplandan ayrı bir disk gibi durur, mürekkep damlası. */
+}
+.etymology-node--root .etymology-node-mark {
+  /* Kök daire: terra-cotta dolgu, manuscript "öncül" işareti. */
+  fill: var(--accent);
+}
+.etymology-node--leaf .etymology-node-mark {
+  /* Yaprak daire: lazaward (modern boya), miras zincirinin uçları. */
+  fill: var(--accent-2);
+}
+
+/* ----- Label (kelime formu) ----- */
+.etymology-node-label {
+  font-family: var(--serif);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  fill: var(--fg);
+  letter-spacing: 0.005em;
+  /* SVG <text> kerning'i tarayıcılara göre değişir; varsayılanı bırak. */
+}
+.etymology-node-label[lang="ar"] {
+  font-family: var(--arabic);
+  font-weight: 700;
+  /* Arapça etiketlerde harf bağları zayıf bir font'ta kötü düşer; Amiri
+     varsayılan'da ise zaten doğru bağlar. */
+}
+
+/* Kök ve yaprakların etiketi hafif vurgulu. */
+.etymology-node--root .etymology-node-label,
+.etymology-node--leaf .etymology-node-label {
+  font-weight: 600;
+}
+
+/* ----- Language (dil aşaması) — mono caps muted ----- */
+.etymology-node-language {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  fill: var(--fg-muted);
+}
+/* Arapça UI'da küçük-uppercase Arapça için anlamlı değil — küçük punto
+   ve normal-case'e dön. */
+[lang="ar"] .etymology-node-language {
+  font-family: var(--arabic-ui);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.78rem;
+}
+
+/* ----- Year — mono italik faint ----- */
+.etymology-node-year {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  font-style: italic;
+  fill: var(--fg-faint);
+}
+
+/* ----- Hover hareketi (sadece yapraklar için "click to navigate" hissi
+   olmadığından şimdilik tüm düğümler) — daire hafif büyür. ----- */
+.etymology-node:hover .etymology-node-mark {
+  transform: scale(1.18);
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: transform 0.18s ease;
+}
+
+/* Mobile: ≤640px — bölüm padding'i daha sıkı olsun (WordPage'deki section
+   default'larına ek). */
+@media (max-inline-size: 640px) {
+  .etymology-tree-wrap {
+    /* SVG zaten overflow-x scroll edilebilir; padding'i kısalt. */
+    margin-inline: calc(-1 * var(--space-4));
+    padding-inline: var(--space-4);
+  }
+}

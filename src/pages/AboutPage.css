@@ -1,0 +1,186 @@
+/* ==========================================================================
+   ABOUT PAGE — single-column colophon-grade reading page (dilim 7/18.ε.A)
+
+   Tasarım: Word/Person/BookPage'in okuma kolonuyla rezonansta tek-sütun;
+   ama kendi ölçeğinde — herhangi bir entity'nin sayfası değil, projenin
+   *imza* sayfası. Bu yüzden:
+     • max-inline-size 62ch — daha rahat satır uzunluğu
+     • subtitle EB Garamond italik, ölçek küçük ama dikkat çekici
+     • section başlıkları küçük caps + ince rule (manuscript marginalia)
+     • paragraflar arası --space-6 (entity sayfalarındakinden hafif daha
+       hava)
+     • Atlas/timeline/stratigraphy görseli yok; bu sayfa düzyazı sayfası
+
+   Colophon altta — WordPage'inkiyle aynı semantik (em isim + altın nokta);
+   stilleri burada lokal tutuluyor ki AboutPage diğer sayfalardan bağımsız
+   evrilebilsin. Eğer ilerde footer-imza paterni paylaşılır olursa shared
+   stylesheet'e taşınır.
+   ========================================================================== */
+
+.about-main {
+  /* Sayfa içeriği üst-bar'dan sonra başlasın; üst boşluk WordPage'lekiyle
+     tutarlı ama biraz daha hava (manifesto sayfası niteliği). */
+  padding-block: var(--space-16) var(--space-12);
+  padding-inline: var(--space-6);
+  animation: about-page-enter 0.6s ease both;
+}
+
+@keyframes about-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-article {
+  max-inline-size: 62ch;
+  margin-inline: auto;
+}
+
+/* --- Header --------------------------------------------------------------- */
+
+.about-header {
+  text-align: center;
+  margin-block-end: var(--space-16);
+}
+
+.about-title {
+  font-family: var(--display);
+  font-size: var(--fs-3xl);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 var(--space-4);
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+
+[lang='ar'] .about-title {
+  font-family: var(--arabic);
+  letter-spacing: 0;
+  font-size: 2.5rem;
+}
+
+.about-subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-lg);
+  color: var(--fg-muted);
+  margin: 0;
+  line-height: 1.55;
+}
+
+[lang='ar'] .about-subtitle {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: 1.2rem;
+  line-height: 1.9;
+}
+
+/* --- Section -------------------------------------------------------------- */
+
+.about-section {
+  margin-block-end: var(--space-12);
+  /* Hafif marginalia rule — manuscript bölüm sınırı */
+  padding-block-start: var(--space-6);
+  border-block-start: 1px solid var(--rule);
+}
+
+.about-section:first-of-type {
+  /* İlk bölüm header'dan sonra geliyor; üst rule gereksiz */
+  border-block-start: none;
+  padding-block-start: 0;
+}
+
+.about-section-head {
+  font-family: var(--display);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent-2);
+  margin: 0 0 var(--space-6);
+  /* Manuscript küçük caps başlığı — atlasınkiyle aynı disiplin */
+}
+
+[lang='ar'] .about-section-head {
+  font-family: var(--arabic-ui);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+/* --- Prose ---------------------------------------------------------------- */
+
+.about-prose {
+  font-family: var(--serif);
+  font-size: var(--fs-md);
+  line-height: 1.75;
+  color: var(--fg);
+}
+
+[lang='ar'] .about-prose {
+  font-family: var(--arabic);
+  font-size: 1.2rem;
+  line-height: 2.05;
+}
+
+.about-prose p {
+  margin: 0 0 var(--space-6);
+}
+
+.about-prose p:last-child {
+  margin-block-end: 0;
+}
+
+.about-prose em {
+  /* Italic for Arabic transliterations + project name */
+  font-style: italic;
+  color: var(--accent);
+}
+
+[lang='ar'] .about-prose em {
+  /* Arabic doesn't have italics; signal emphasis with color only */
+  font-style: normal;
+  color: var(--accent);
+}
+
+.about-prose strong {
+  /* Editorial emphasis — three weights below where headers + colors are */
+  font-weight: 600;
+  color: var(--fg);
+}
+
+/* --- Closing colophon ----------------------------------------------------- */
+
+.about-colophon {
+  margin-block-start: var(--space-16);
+  border-block-start: 1px solid var(--rule);
+  padding-block: var(--space-8);
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--fg-muted);
+  font-size: var(--fs-md);
+}
+
+[lang='ar'] .about-colophon {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: 1.15rem;
+  line-height: 2;
+}
+
+.about-colophon-mark {
+  display: inline-block;
+  inline-size: 4px;
+  block-size: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin: 0 var(--space-4);
+  vertical-align: middle;
+}

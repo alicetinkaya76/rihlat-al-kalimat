@@ -1,0 +1,12 @@
+# Riḥlat al-Kalimāt · robots.txt (dilim 7/18.ε.A — launch hazırlığı)
+#
+# Bütün crawler'lara erişim açık. Site statik bir yayın; rate limit veya
+# özel kısıt gerekmiyor. Sitemap path mutlak (SITE_ORIGIN deploy
+# sırasında set edilir; sitemap.xml içindeki `<loc>`'lar mutlak URL
+# taşır, böylece robots.txt'in `Sitemap:` satırı search engine'in
+# beklediği yere yönlendirir).
+
+User-agent: *
+Allow: /
+
+Sitemap: https://rihla.example/sitemap.xml

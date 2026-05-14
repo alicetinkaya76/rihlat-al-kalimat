@@ -1,0 +1,201 @@
+{
+  "nav": {
+    "brand": "Riḥlat al-Kalimāt",
+    "brandArabic": "رحلة الكلمات",
+    "home": "Anasayfa",
+    "toggleTheme": "Tema değiştir",
+    "toggleThemeToLight": "Aydınlık temaya geç",
+    "toggleThemeToDark": "Karanlık temaya geç",
+    "languageSwitch": {
+      "label": "Dil",
+      "tr": "TR",
+      "en": "EN",
+      "ar": "العربية"
+    }
+  },
+  "entities": {
+    "word": "Kelime",
+    "person": "Kişi",
+    "book": "Kitap",
+    "theme": "Tema",
+    "wordPlural": "Kelimeler",
+    "personPlural": "Kişiler",
+    "bookPlural": "Kitaplar",
+    "themePlural": "Temalar"
+  },
+  "sections": {
+    "sources": "Kaynaklar",
+    "stratigraphy": "Tarihsel sediment",
+    "etymology": "Köken ağacı",
+    "inheritanceLine": "Etki halkası",
+    "wordsIndebted": "Bu kişiye borçlu kelimeler",
+    "works": "Eserleri",
+    "author": "Yazar",
+    "manuscripts": "Önemli elyazmaları",
+    "translations": "Tercümeler ve eleştirel basımlar",
+    "siblings": "Akraba kelimeler",
+    "relatedWords": "Bu kitaba bağlı kelimeler",
+    "appearsInThemes": "Şu temalarda anılır"
+  },
+  "stratigraphy": {
+    "modeProportionalInactive": "Yıl-orantılı moda geç (gerçek mesafeleri göster)",
+    "modeProportionalActive": "Eşit-aralık moda geç (okuma için)"
+  },
+  "person": {
+    "meta": {
+      "lifespan": "Yaşam",
+      "birthplace": "Doğum yeri",
+      "activeIn": "Faal olduğu yer",
+      "workLanguages": "Çalışma dilleri"
+    }
+  },
+  "book": {
+    "meta": {
+      "author": "Yazar",
+      "composed": "Yazılış tarihi",
+      "composedIn": "Yazılış yeri",
+      "originalLanguage": "Asıl dil"
+    },
+    "manuscriptStatus": {
+      "full": "tam dijital",
+      "partial": "kısmî dijital",
+      "offline": "çevrimdışı"
+    }
+  },
+  "theme": {
+    "tier": {
+      "magnum": "Magnum esay",
+      "cluster": "Tema demeti"
+    },
+    "miniAtlas": {
+      "aria": "Tema rotası — mini harita"
+    }
+  },
+  "common": {
+    "loading": "Yükleniyor…",
+    "comingSoon": "Yakında",
+    "back": "Geri",
+    "sources": "Kaynaklar"
+  },
+  "languages": {
+    "turkish": "Türkçe",
+    "english": "İngilizce",
+    "arabic": "Arapça"
+  },
+  "home": {
+    "atlasTitle": "Atlas",
+    "atlasSubtitle": "kazı sahası — varlıkların coğrafi çapaları",
+    "directoryTitle": "Dizin",
+    "directorySubtitle": "korpustaki tüm kayıtlar",
+    "tierShowcase": "Derinlemesine işlenmiş — Vitrin tier",
+    "tierCatalogue": "Kompakt giriş — Katalog tier"
+  },
+  "atlas": {
+    "resetZoom": "Yakınlaştırmayı sıfırla",
+    "timelineLabel": "Zaman:",
+    "timelineAll": "tüm zaman",
+    "timelineUpTo": "{{year}}'a kadar",
+    "timelineReset": "Tüm zamana dön",
+    "searchLabel": "Kelime ara",
+    "searchPlaceholder": "örn. coffee, admiral, algorithm",
+    "reset": "temizle",
+    "resetLabel": "Filtreleri temizle",
+    "journeyFilter": "Yolculuk arketipi",
+    "noMatch": "Eşleşme yok",
+    "matchCount_one": "{{count}} eşleşme",
+    "matchCount_other": "{{count}} eşleşme",
+    "entities": "kayıt"
+  },
+  "wordsList": {
+    "subtitle": "Korpusun bütün kelimeleri.",
+    "count": "{{count}} girdi",
+    "sortLabel": "Sırala:",
+    "sortAlphabetical": "Alfabetik",
+    "sortJourney": "Arketipe göre",
+    "sortAnchors": "Atlas rotası",
+    "anchorCount": "{{count}}-hop atlas rotası",
+    "anchorSingle": "tek atlas yeri",
+    "seeAll": "tümünü gör",
+    "filterLabel": "Süz:",
+    "filterAll": "Tümü",
+    "filterShowcase": "Vitrin",
+    "filterCatalogue": "Katalog",
+    "countFiltered": "{{shown}} / {{total}} girdi"
+  },
+  "personsList": {
+    "subtitle": "Korpusta yer alan tüm kişiler.",
+    "count": "{{count}} girdi",
+    "sortLabel": "Sırala:",
+    "sortAlphabetical": "Alfabetik",
+    "sortLifespan": "Yaşam dönemi",
+    "sortAnchors": "Atlas rotası",
+    "anchorCount": "{{count}}-yer biyografik rota",
+    "seeAll": "tümünü gör",
+    "filterLabel": "Süz:",
+    "filterAll": "Tümü",
+    "filterShowcase": "Vitrin",
+    "filterCatalogue": "Katalog",
+    "countFiltered": "{{shown}} / {{total}} girdi"
+  },
+  "booksList": {
+    "subtitle": "Korpusta yer alan tüm kitaplar.",
+    "count": "{{count}} girdi",
+    "sortLabel": "Sırala:",
+    "sortAlphabetical": "Alfabetik",
+    "sortComposed": "Yazılış tarihi",
+    "sortAnchors": "Atlas rotası",
+    "anchorCount": "{{count}}-yer elyazma/tercüme rotası",
+    "seeAll": "tümünü gör",
+    "filterLabel": "Süz:",
+    "filterAll": "Tümü",
+    "filterShowcase": "Vitrin",
+    "filterCatalogue": "Katalog",
+    "countFiltered": "{{shown}} / {{total}} girdi"
+  },
+  "journeys": {
+    "label": "Yolculuk",
+    "translator": "Mütercimin yolu",
+    "merchant": "Tüccarın kervanı",
+    "andalusian": "Endülüs tortusu",
+    "crusader": "Haçlının hatırası",
+    "astronomer": "Yıldızbilimcinin mirası",
+    "alchemist": "Simyacının atölyesi",
+    "diplomatic": "Diplomatik mübadele",
+    "indexTitle": "Yolculuk arketipleri",
+    "indexSubtitle": "Bir kelimenin diller arası göçü tek bir patikadan geçmez; yedi tipik rota hikâyenin omurgasını çizer. Aşağıdaki listede her arketibin tanımı ve ona bağlı kelimeler.",
+    "indexBack": "Bütün yolculuklar",
+    "wordCount_one": "{{count}} kelime",
+    "wordCount_other": "{{count}} kelime",
+    "empty": "henüz örneksiz",
+    "emptyNote": "Bu arketibe ait kelimeler henüz korpusa girmedi. Sonraki içerik dilim'lerinde — admiral, assassin, Aldebaran gibi adaylarla — bu sayfa dolacak.",
+    "colophon": "Bu sayfa /content/journeys/ altındaki MDX dosyalarından üretildi (dilim 7/35); tam içerik ve kaynaklar her arketibin kendi belgesindedir."
+  },
+  "about": {
+    "title": "Hakkında",
+    "subtitle": "Bu projenin tezi, yöntemi ve şu anki durumu — kolofon kalitesinde, tek sayfa.",
+    "thesisHead": "Bu proje",
+    "methodHead": "Editöryel yöntem",
+    "stateHead": "Şu an",
+    "sourcesHead": "Kaynak standartı",
+    "closingHead": "Kapanış",
+    "footerNote": "Riḥlat al-Kalimāt · bir araştırma ve yayım çalışması · 2026"
+  },
+  "footer": {
+    "about": "Hakkında",
+    "sourceCode": "Kaynak kodu",
+    "edition": "Sürüm",
+    "colophonMark": "·"
+  },
+  "share": {
+    "share": "Sayfayı paylaş",
+    "copied": "Bağlantı kopyalandı",
+    "shared": "Paylaşıldı"
+  },
+  "breadcrumb": {
+    "home": "Anasayfa",
+    "words": "Kelimeler",
+    "persons": "Kişiler",
+    "books": "Kitaplar",
+    "themes": "Temalar"
+  }
+}

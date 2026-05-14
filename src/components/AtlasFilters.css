@@ -1,0 +1,178 @@
+/* ───────────────────────────────────────────────────────────────────
+   AtlasFilters — search + archetype chip bar
+   Dilim 7/43.τ
+   ─────────────────────────────────────────────────────────────────── */
+
+.rihla-atlas-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--color-paper, #f5ebd5);
+  border: 1px solid var(--color-ink-faded, #8a7a5c);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Üst sıra: arama input + reset ──────────────────────────────────── */
+
+.rihla-atlas-filters-search-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.rihla-atlas-filters-search-label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.rihla-atlas-filters-search-label-text {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-faded, #8a7a5c);
+}
+
+.rihla-atlas-filters-search-input {
+  font-family: var(--font-serif, 'EB Garamond', Garamond, serif);
+  font-size: 1.1rem;
+  padding: 0.55rem 0.85rem;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--color-ink-faded, #8a7a5c);
+  border-radius: 2px;
+  color: var(--color-ink, #2a2620);
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rihla-atlas-filters-search-input:focus {
+  border-color: var(--color-accent, #8b3a2f);
+  box-shadow: 0 0 0 2px var(--color-accent-soft, #d4b896);
+}
+
+.rihla-atlas-filters-search-input::placeholder {
+  color: var(--color-ink-faded, #8a7a5c);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.rihla-atlas-filters-reset {
+  align-self: flex-end;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.55rem 0.85rem;
+  background: transparent;
+  border: 1px solid var(--color-ink-faded, #8a7a5c);
+  border-radius: 2px;
+  color: var(--color-ink, #2a2620);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.rihla-atlas-filters-reset:hover {
+  background: var(--color-accent-soft, #d4b896);
+  border-color: var(--color-accent, #8b3a2f);
+}
+
+/* ── Orta sıra: journey chip bar ───────────────────────────────────── */
+
+.rihla-atlas-filters-journey-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.rihla-atlas-filters-journey-label {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-faded, #8a7a5c);
+}
+
+.rihla-atlas-filters-journey-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.rihla-atlas-filters-journey-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-serif, 'EB Garamond', Garamond, serif);
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid var(--color-ink-faded, #8a7a5c);
+  border-radius: 18px;
+  color: var(--color-ink, #2a2620);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.rihla-atlas-filters-journey-chip:hover:not(:disabled) {
+  background: var(--color-accent-soft, #d4b896);
+  border-color: var(--color-accent, #8b3a2f);
+}
+
+.rihla-atlas-filters-journey-chip--active {
+  background: var(--color-accent, #8b3a2f) !important;
+  border-color: var(--color-accent, #8b3a2f) !important;
+  color: var(--color-paper, #f5ebd5) !important;
+}
+
+.rihla-atlas-filters-journey-chip--active .rihla-atlas-filters-journey-chip-count {
+  color: var(--color-paper, #f5ebd5);
+  opacity: 0.85;
+}
+
+.rihla-atlas-filters-journey-chip--empty {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.rihla-atlas-filters-journey-chip-count {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.78rem;
+  color: var(--color-ink-faded, #8a7a5c);
+}
+
+/* ── Alt sıra: durum ───────────────────────────────────────────────── */
+
+.rihla-atlas-filters-status {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent, #8b3a2f);
+  padding-top: 0.4rem;
+  border-top: 1px dashed var(--color-ink-faded, #8a7a5c);
+}
+
+/* ── Mobile ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .rihla-atlas-filters-search-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .rihla-atlas-filters-reset {
+    align-self: stretch;
+    text-align: center;
+  }
+}

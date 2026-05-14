@@ -1,0 +1,312 @@
+/* =========================================================================
+   ENTITY LIST — Catalogue listing pages (paylaşılan stylesheet)
+   ----------------------------------------------------------------------
+   WordsListPage (dilim 7/10.A) + PersonsListPage + BooksListPage (dilim
+   7/16.δ.A) için ortak görsel sözlük. Class prefix'i `entitylist-*` —
+   üç sayfa aynı manuscript-aesthetic kartı (◆/◇ tier glyph + display
+   başlık + literal/biyo subtitle + atlas-anchor rozeti) ve aynı sort/
+   filter toolbar pattern'ini paylaşır. Entity tipi farklılıkları
+   sort-mode etiketlerinde (alfabetik / yolculuk / yaşam dönemi /
+   yazılış tarihi / atlas) ve subtitle stratejisinde — CSS değil JSX
+   tarafında — ifade edilir.
+
+   Tipografik disiplin: HomePage'in `.home-directory-col-head` + `.home-
+   entity-card` paterniyle aynı tokenler — yeni bir tipografik dünya
+   açılmıyor. Sort buttonlar segmented control sicilinde, mono uppercase
+   ufak punto (HomePage Journeys section pill paletinin yatık-kard
+   kardeşi).
+
+   Önceki sürüm (dilim 7/10–7/15): `wordslist-*` prefix'i; entity-tip
+   simetrisi açıldığında (7/16) `entitylist-*` ortak isime taşındı.
+   Mimari maliyet sıfır — class isimleri scope'lu, hiçbir başka modül
+   eski adı okumuyordu.
+   ========================================================================= */
+
+.entitylist-main {
+  inline-size: 100%;
+  max-inline-size: 1200px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem) var(--space-16);
+}
+
+/* ----- Header (page title + count + subtitle) ----- */
+.entitylist-header {
+  margin-block-end: var(--space-8);
+  max-inline-size: 60ch;
+}
+.entitylist-title {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin: 0 0 var(--space-3);
+  color: var(--fg);
+}
+[lang="ar"] .entitylist-title {
+  font-family: var(--arabic);
+  font-weight: 700;
+  line-height: 1.3;
+}
+.entitylist-subtitle {
+  font-family: var(--serif);
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  color: var(--fg-muted);
+  margin: 0;
+}
+[lang="ar"] .entitylist-subtitle {
+  font-family: var(--arabic);
+  line-height: 1.85;
+}
+.entitylist-count {
+  /* Mono tonunda etiket — sayısal metadata için. HomePage'in
+     directory-head'inin sayım rozetiyle aynı sicil. */
+  font-family: var(--mono);
+  font-size: var(--fs-sm);
+  color: var(--fg-faint);
+  letter-spacing: 0.04em;
+}
+[lang="ar"] .entitylist-count {
+  font-family: var(--arabic-ui, var(--mono));
+}
+
+/* ----- Sort toolbar (3-way segmented) -----
+   Tasarım: 3 button + bir label, yatay flex, wrap'a açık. Aktif olan
+   gold border + ink color; pasif olanlar muted. Hover'da hafif background
+   geçişi. JourneyBadge moss paletinden ayrı tutuldu — bunlar UI kontrol,
+   journey değil; gold çizgi (--gold-leaf) ile imledim.
+
+   accessibility: ARIA toolbar pattern, her button aria-pressed. Sort
+   "ayrı bir page state" değil, in-page filtreleme — radio değil button. */
+.entitylist-sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-block-end: var(--space-8);
+  padding-block-end: var(--space-4);
+  border-block-end: 1px solid var(--rule, var(--fg-faint));
+}
+.entitylist-sort-label {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin-inline-end: var(--space-2);
+}
+[lang="ar"] .entitylist-sort-label {
+  font-family: var(--arabic-ui);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: var(--fs-sm);
+}
+.entitylist-sort-btn {
+  appearance: none;
+  background: transparent;
+  font-family: var(--serif);
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.entitylist-sort-btn:hover {
+  color: var(--fg);
+  background: var(--bg-deep);
+}
+.entitylist-sort-btn--active {
+  color: var(--fg);
+  border-color: var(--gold-leaf, var(--accent));
+}
+.entitylist-sort-btn:focus-visible {
+  outline: 2px solid var(--moss, var(--accent));
+  outline-offset: 2px;
+}
+[lang="ar"] .entitylist-sort-btn {
+  font-family: var(--arabic);
+}
+
+/* ----- Filter toolbar (dilim 7/12) -----
+   Sort toolbar'ın altında, görsel olarak komşu. Bu yüzden top margin
+   negatif değil — basitçe sort toolbar'ın bottom border'ı ikisini
+   ayırırken her ikisinin altında tek bir clean ayraç yerine, sort
+   toolbar'ın border'ını burada koruyup filter'ı kendi alanına otururuz.
+   Filter toolbar bitiminde de görsel ayraç var: margin-block-end. */
+.entitylist-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-block-end: var(--space-8);
+  padding-block-end: var(--space-4);
+  border-block-end: 1px solid var(--rule, var(--fg-faint));
+}
+
+/* ----- Grid (responsive 1/2/3 col) ----- */
+.entitylist-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+/* ----- Word card ----- */
+.entitylist-card {
+  display: block;
+  block-size: 100%;
+  padding: var(--space-5);
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.entitylist-card::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 2px;
+  background: var(--gold-leaf, var(--gold));
+  transform-origin: inline-start;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.entitylist-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-deep);
+}
+.entitylist-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Journey tag — HomePage'in .home-entity-journey ile aynı sicil
+   (◆ ARKETİP mono moss). Buradaki kart daha geniş olduğu için
+   marjin biraz daha hava verir. */
+.entitylist-card-journey {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-block-end: var(--space-2);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--moss, var(--accent));
+  opacity: 0.78;
+  line-height: 1;
+}
+.entitylist-card:hover .entitylist-card-journey {
+  opacity: 1;
+}
+.entitylist-card-journey-mark {
+  font-size: 0.6875rem;
+  opacity: 0.85;
+}
+[lang="ar"] .entitylist-card-journey {
+  font-family: var(--arabic-ui);
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+}
+
+/* Lifespan / composedYear rozeti — dilim 7/16.δ.A. Person ve Book
+   kartlarının üstünde küçük mono tarih (örn. "980 – 1037" veya
+   "c. 825") gösterir. Word'lerin journey-tag'inin tipografik kardeşi:
+   aynı mono + mikro punto + opacity geçişi; renk olarak moss yerine
+   gold-leaf — tarih bilgisi *editöryel kayıt* tonunda, yolculuk
+   arketipi *taksonomi* tonunda. */
+.entitylist-card-lifespan {
+  display: inline-block;
+  margin-block-end: var(--space-2);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  color: var(--gold-leaf, var(--accent));
+  opacity: 0.7;
+  line-height: 1;
+}
+.entitylist-card:hover .entitylist-card-lifespan {
+  opacity: 1;
+}
+[lang="ar"] .entitylist-card-lifespan {
+  font-family: var(--arabic-ui, var(--mono));
+  letter-spacing: 0;
+  font-size: 0.75rem;
+}
+
+.entitylist-card-title {
+  font-family: var(--display);
+  font-size: var(--fs-xl);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 var(--space-3);
+  color: var(--fg);
+}
+[lang="ar"] .entitylist-card-title {
+  font-family: var(--arabic);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.entitylist-card-meaning {
+  font-family: var(--serif);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--fg-muted);
+  margin: 0 0 var(--space-3);
+}
+[lang="ar"] .entitylist-card-meaning {
+  font-family: var(--arabic);
+  line-height: 1.85;
+  font-size: var(--fs-base);
+}
+.entitylist-card-meaning em {
+  font-style: italic;
+  color: var(--fg);
+}
+[lang="ar"] .entitylist-card-meaning em {
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* Atlas anchor count badge — sadece çoklu-anchor için (>1).
+   Mono ufak, gold-leaf, hafif vurgu. Multi-anchor Word'leri
+   görsel olarak ayrıştıran "derinlik" göstergesi. */
+.entitylist-card-anchors {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--gold-leaf, var(--accent));
+  margin: var(--space-2) 0 0;
+  opacity: 0.85;
+  letter-spacing: 0.04em;
+}
+[lang="ar"] .entitylist-card-anchors {
+  font-family: var(--arabic-ui, var(--mono));
+  font-size: var(--fs-sm);
+  letter-spacing: 0;
+}
+
+/* ----- Mobile ----- */
+@media (max-inline-size: 640px) {
+  .entitylist-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .entitylist-sort,
+  .entitylist-filter {
+    gap: var(--space-1);
+  }
+  .entitylist-sort-btn {
+    font-size: var(--fs-xs);
+    padding: var(--space-1) var(--space-2);
+  }
+}

@@ -1,0 +1,682 @@
+/* =========================================================================
+   HOMEPAGE — Riḥlat al-Kalimāt giriş sayfası
+   ----------------------------------------------------------------------
+   Yapı:
+     • home-header: bilingual başlık + tagline
+     • Atlas component: kendi CSS'i (Atlas.css) — kompozisyon-merkez
+     • home-directory: üç sütunlu Word/Person/Book liste-grid (fallback +
+       direkt erişim)
+   ========================================================================= */
+
+.home-main {
+  inline-size: 100%;
+  max-inline-size: 1400px;
+  margin: 0 auto;
+  padding-block: clamp(1.5rem, 4vw, 3rem) var(--space-16);
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+/* ----- Header (brand + tagline) ----- */
+.home-header {
+  margin-block-end: var(--space-12);
+  max-inline-size: 60ch;
+}
+.home-brand {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin: 0;
+  margin-block-end: var(--space-4);
+  color: var(--fg);
+}
+.home-brand-sep {
+  color: var(--fg-faint);
+  font-weight: 300;
+  margin: 0 0.2em;
+}
+.home-brand-arabic {
+  font-family: var(--arabic);
+  font-weight: 700;
+  /* Arapça'da ağırlık biraz farklı düşer; sayısal sıkıştırma. */
+  letter-spacing: -0.01em;
+}
+.home-tagline {
+  font-family: var(--serif);
+  font-size: var(--fs-lg);
+  line-height: 1.6;
+  color: var(--fg-muted);
+  margin: 0;
+}
+[lang="ar"] .home-tagline {
+  font-family: var(--arabic);
+  font-size: var(--fs-md);
+  line-height: 1.85;
+}
+
+/* ----- Directory section (alt kısım — Word/Person/Book sütunlu liste) ----- */
+.home-directory {
+  margin-block-start: var(--space-16);
+}
+.home-directory-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding: var(--space-8) var(--space-2) var(--space-4);
+  border-block-end: 1px solid var(--rule);
+  margin-block-end: var(--space-8);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+.home-directory-head::before {
+  content: "";
+  flex: 0 0 24px;
+  block-size: 1px;
+  background: var(--gold);
+}
+.home-directory-title {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  margin: 0;
+  font-weight: 500;
+  color: var(--fg-muted);
+}
+.home-directory-subtitle {
+  color: var(--fg-faint);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-family: var(--serif);
+  font-size: var(--fs-sm);
+}
+[lang="ar"] .home-directory-head {
+  font-family: var(--arabic-ui);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: var(--fs-sm);
+}
+[lang="ar"] .home-directory-subtitle {
+  font-family: var(--arabic);
+}
+
+/* ----- 3-sütunlu grid ----- */
+.home-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+}
+.home-directory-col-head {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin: 0 0 var(--space-4);
+  padding-block-end: var(--space-2);
+  border-block-end: 1px solid var(--rule);
+  font-weight: 500;
+}
+[lang="ar"] .home-directory-col-head {
+  font-family: var(--arabic-ui);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: var(--fs-sm);
+}
+
+/* Dilim 7/10.A: Words sütununun başlık satırı — başlık solda,
+   opsiyonel "tümünü gör →" linki sağda. Diğer sütunlarda link
+   yok (Person/Book/Theme Catalogue route'ları henüz yok).
+   `.home-directory-col-head` zaten alt-border + space taşıyor;
+   bu wrapper yalnız layout: flex baseline align, gap. */
+.home-directory-col-headrow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-block-end: var(--space-4);
+  padding-block-end: var(--space-2);
+  border-block-end: 1px solid var(--rule);
+}
+.home-directory-col-headrow .home-directory-col-head {
+  /* Wrapper margin/padding/border'ı taşıyor — kafa kendi border'ını sıfırla. */
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.home-directory-col-headlink {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-xs);
+  color: var(--moss, var(--accent));
+  text-decoration: none;
+  border-block-end: 1px solid transparent;
+  padding-block-end: 1px;
+  transition: border-color 0.25s ease, color 0.25s ease;
+  /* "tümünü gör →" — marjinal-not sicili. NotFound'un back link'i
+     ile aynı dilde. Moss accent → moss border. */
+}
+.home-directory-col-headlink:hover,
+.home-directory-col-headlink:focus-visible {
+  border-block-end-color: var(--moss, var(--accent));
+  color: var(--fg);
+}
+[lang="ar"] .home-directory-col-headlink {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: var(--fs-sm);
+}
+
+.home-directory-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.home-directory-empty {
+  color: var(--fg-faint);
+  font-style: italic;
+  padding: var(--space-3);
+}
+
+/* ----- Entity card — link to entity page ----- */
+.home-entity-card {
+  display: block;
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.home-entity-card::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 2px;
+  background: var(--gold);
+  transform-origin: inline-start;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.home-entity-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-deep);
+}
+.home-entity-card:hover::before {
+  transform: scaleX(1);
+}
+
+.home-entity-subtitle {
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  margin-block-start: var(--space-1);
+  line-height: 1.5;
+}
+[lang="ar"] .home-entity-subtitle {
+  font-family: var(--arabic);
+  line-height: 1.7;
+}
+
+/* ----- Entity-card içi journey tag (dilim 7/8.C) -----
+   Word kartlarında başlığın üstünde küçük mono-uppercase moss-yeşili
+   "◆ ENDÜLÜS" indicator'ı. Persons/Books/Themes kartlarında YOK
+   (journey arketipleri yalnız Word'ün taksonomisi).
+
+   Görsel-dil tutarlılığı: Atlas pin-rengi entity-tipini imler (Word
+   pirinç, Person beyaz, Book sepia, Theme gold/lazaward); Directory
+   bu kart-içi tag ile Word'lerde *journey arketipini* imler — yani
+   her görsel modaliteye bir taksonomik aks. JourneyBadge bileşeninin
+   ekonomik kart-içi varyantı: tıklanmaz (kart-link bütünlüğü), yalnız
+   sicilen belirten. Renkler ve glyph (◆) tam olarak JourneyBadge ile
+   eşleşir; o bileşenin küçültülmüş kardeşi.
+
+   Tipografi: directory-col-head'in 0.18em letter-spacing'ini ve mono
+   font'unu izler — başka tipografik dünya açmaz, mevcut "etiket"
+   diline yapışır. Renk JourneyBadge ile bir: --moss / fallback --accent. */
+.home-entity-journey {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-block-end: var(--space-1);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--moss, var(--accent));
+  opacity: 0.78;
+  /* Kart link'i hover'da gold-sweep yapıyor (::before); bu tag onun
+     altında kalmamalı: line-height tight tutuluyor ki kart hover'da
+     tag aşağı kaymasın. */
+  line-height: 1;
+}
+.home-entity-card:hover .home-entity-journey {
+  opacity: 1;
+}
+.home-entity-journey-mark {
+  font-size: 0.625rem;
+  /* Mark glyph (◆) — JourneyBadge ile aynı sembol. opacity tag'in
+     kendisinden biraz daha düşük → arketip metni dikkat odağı, mark
+     yardımcı işaret. */
+  opacity: 0.85;
+}
+.home-entity-journey-text {
+  /* default — ek stile gerek yok; flex parent yeterli. */
+}
+[lang="ar"] .home-entity-journey {
+  /* Arapça'da uppercase yok (alfabe gerektirmiyor); mono font da
+     Arapça karakterleri kötü resmedebilir. Latin-Arapça karışık
+     register: text-transform sıfırla, font Arapça-UI'a düşür. */
+  font-family: var(--arabic-ui);
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+}
+
+/* ----- Tier indicator (dilim 7/14.β.C) -----
+   Başlık satırının sağında küçük bir editöryel hiyerarşi işareti:
+     ◆ (dolu elmas) — showcase Word/Person/Book ve magnum Theme
+     ◇ (boş elmas) — catalogue Word/Person/Book ve cluster Theme
+   Atlas dot tier ayrımı (7/13.C) ile aynı argümanı taşır: derin
+   entity'ler görsel ağırlığı taşır, kompakt entity'ler arka plana iner.
+
+   Title-row flex container'ı title ile glyph'i yan yana hizalar; glyph
+   start-edge'e değil base-line'a hizalı, journey-tag (başlığın üstünde)
+   ile vizüel olarak çakışmaz. opacity düşük tutulur (~0.45 catalogue,
+   ~0.65 showcase) — bilgi ama gürültü değil; kart hover'a alınınca tam
+   ağırlığa çıkar (1.0). */
+.home-entity-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.home-entity-title {
+  /* Flex item — eski stil korunur (font display, weight 400). */
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.home-entity-tier {
+  /* Tier glyph (◆ / ◇) — kompakt, mono-line, base-line aligned. */
+  flex: 0 0 auto;
+  font-size: 0.7rem;
+  font-family: var(--mono, monospace);
+  color: var(--ink-soft, var(--ink, #444));
+  line-height: 1;
+  /* Aria-label var; cursor default — tıklanabilir değil, kart-link
+     bütünlüğü için yalnız vizüel sicil. */
+  user-select: none;
+  pointer-events: none;
+}
+.home-entity-tier--heavy {
+  /* Showcase / magnum — daha doygun, dikkat çeker ama baskın değil. */
+  opacity: 0.65;
+}
+.home-entity-tier--light {
+  /* Catalogue / cluster — solgun, varlığını sezdiren işaret. */
+  opacity: 0.45;
+}
+.home-entity-card:hover .home-entity-tier {
+  /* Hover'da tier sicilinin tam ağırlığa çıkması: kullanıcı kart üzerine
+     odaklandığında editöryel hiyerarşinin tam okunması. */
+  opacity: 1;
+}
+[lang="ar"] .home-entity-tier {
+  /* Arapça'da serif Arapça uikitten daha temiz görünür — fontu UI'a düşür.
+     Glyph (◆/◇) zaten dil-bağımsız Unicode geometric shape, ama font-stack
+     iniş Arapça blok hizalamasını korur. */
+  font-family: var(--arabic-ui);
+}
+
+/* ----- Journeys section (dilim 7/7.B) -----
+   Atlas (coğrafi gezinti) + Directory (alfabetik dizin) arasında bir
+   taksonomik gezinti katmanı. 7-arketip pill listesi; her pill
+   `/yolculuk/:type`'a link. JourneyBadge'in moss-yeşili paletini takip
+   eder, ama daha sıkı dizilim (Homepage'in dar dikey nefes alanına
+   uygun).
+
+   Mobile'da pill'ler 2-3 sütunlu grid'e düşer; desktop'ta tek satır
+   flex-wrap. Empty arketipler (sayım 0) silik ama yine de tıklanabilir
+   — kullanıcı "bu arketip ne demek?" diye merak ederse JourneyPage'ten
+   tanımı okuyabilir. */
+.home-journeys {
+  margin-block: var(--space-10) var(--space-12);
+  padding-block: var(--space-6) var(--space-7);
+  border-block: 1px solid var(--rule, var(--fg-muted));
+}
+
+.home-journeys-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-block-end: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.home-journeys-title {
+  font-family: var(--display, var(--font-serif));
+  font-size: var(--fs-2xl, 1.75rem);
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+
+.home-journeys-link {
+  color: var(--ink);
+  text-decoration: none;
+  border-block-end: 1px solid transparent;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.home-journeys-link:hover {
+  color: var(--moss, var(--accent));
+  border-block-end-color: var(--moss, var(--accent));
+}
+
+.home-journeys-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--ink-muted, var(--fg-muted));
+  opacity: 0.78;
+}
+
+.home-journeys-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.home-journeys-item {
+  /* no styling; pill içerir */
+}
+
+.home-journey-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-inline: var(--space-3);
+  padding-block: 0.3rem;
+  border: 1px solid var(--moss, var(--accent));
+  border-radius: 999px;
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  color: var(--moss, var(--accent));
+  text-decoration: none;
+  background: transparent;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.home-journey-pill:hover {
+  transform: translateY(-1px);
+  background: color-mix(in oklab, var(--moss, var(--accent)) 8%, transparent);
+}
+
+.home-journey-pill--empty {
+  opacity: 0.55;
+}
+
+.home-journey-pill--empty:hover {
+  opacity: 0.85;
+}
+
+.home-journey-pill-mark {
+  font-size: 0.75rem;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.home-journey-pill-text {
+  /* gerek yok ek stile */
+}
+
+.home-journey-pill-count {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  background: color-mix(in oklab, var(--moss, var(--accent)) 15%, transparent);
+  padding-inline: 0.4rem;
+  padding-block: 0.05rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  /* küçük rozet "sayım" göstergesi; arketip pill'i içinde sayıyı
+     metinden ayırarak görsel hiyerarşi sağlar. */
+}
+
+/* ----- Mobile ----- */
+@media (max-inline-size: 640px) {
+  .home-main {
+    padding-inline: var(--space-4);
+  }
+  .home-directory-grid {
+    gap: var(--space-6);
+  }
+  .home-journeys-list {
+    gap: var(--space-2);
+  }
+  .home-journey-pill {
+    font-size: 0.875rem;
+    padding-inline: var(--space-2);
+  }
+}
+
+/* =========================================================================
+   DİLİM 7/43-44 — atlas-merkezli refactor stil eklemeleri
+   ========================================================================= */
+
+/* ── 2. Atlas section ──────────────────────────────────────────────── */
+
+.home-atlas-section {
+  margin: 2.5rem 0 3rem;
+}
+
+.home-atlas-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.home-atlas-title {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  margin: 0;
+  color: var(--color-ink, #2a2620);
+}
+
+.home-atlas-intro {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--color-ink-faded, #6a6555);
+  margin: 0;
+  max-width: 70ch;
+  line-height: 1.5;
+}
+
+/* ── 3. Showcase grid ──────────────────────────────────────────────── */
+
+.home-showcase {
+  margin: 3rem 0;
+}
+
+.home-showcase-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-ink-faded, #8a7a5c);
+}
+
+.home-showcase-title {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  margin: 0;
+  color: var(--color-ink, #2a2620);
+}
+
+.home-showcase-subtitle {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-ink-faded, #8a7a5c);
+}
+
+.home-showcase-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.home-showcase-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.32);
+  border: 1px solid var(--color-ink-faded, #8a7a5c);
+  border-radius: 2px;
+  text-decoration: none;
+  color: var(--color-ink, #2a2620);
+  transition: background 0.18s, border-color 0.18s, transform 0.18s;
+  min-height: 5.5rem;
+}
+
+.home-showcase-card:hover {
+  background: var(--color-accent-soft, #d4b896);
+  border-color: var(--color-accent, #8b3a2f);
+  transform: translateY(-1px);
+}
+
+.home-showcase-card-journey {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-moss, #4d6651);
+}
+
+.home-showcase-card-title {
+  color: var(--color-ink, #2a2620);
+}
+
+.home-showcase-card-meaning {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-ink-faded, #6a6555);
+  line-height: 1.35;
+}
+
+.home-showcase-card-meaning em {
+  font-style: normal;
+  color: var(--color-ink, #2a2620);
+  font-weight: 500;
+}
+
+/* ── 4. Compact directory strip ────────────────────────────────────── */
+
+.home-directory-strip {
+  margin: 3rem 0 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-ink-faded, #8a7a5c);
+}
+
+.home-directory-strip .home-directory-head {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-faded, #8a7a5c);
+  margin: 0 0 0.85rem;
+  font-weight: 400;
+}
+
+.home-directory-counts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+}
+
+.home-directory-counts li {
+  display: flex;
+}
+
+.home-directory-counts-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: var(--color-ink, #2a2620);
+  font-family: var(--font-serif);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+  padding-bottom: 1px;
+}
+
+.home-directory-counts-link:hover {
+  border-bottom-color: var(--color-accent, #8b3a2f);
+}
+
+.home-directory-counts-link--nolink {
+  cursor: default;
+}
+
+.home-directory-counts-link--nolink:hover {
+  border-bottom-color: transparent;
+}
+
+.home-directory-counts-num {
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--color-accent, #8b3a2f);
+}
+
+.home-directory-counts-label {
+  font-size: 0.95rem;
+  color: var(--color-ink-faded, #6a6555);
+  font-style: italic;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .home-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-directory-counts {
+    gap: 1rem 1.5rem;
+  }
+  .home-directory-counts-num {
+    font-size: 1.25rem;
+  }
+}

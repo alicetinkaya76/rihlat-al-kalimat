@@ -1,0 +1,100 @@
+/* ==========================================================================
+   SITE FOOTER — alt chrome (dilim 7/18.ε.A)
+
+   Sade tek-satır. TopBar'ın aynası değil — TopBar interaktif (dil, tema);
+   SiteFooter pasif imza. Bu fark görsel olarak şu anlama gelir:
+     • Daha küçük yazı tipi (--fs-sm)
+     • Daha sönük renk (--fg-faint)
+     • Hiç border yok (üstte tek bir ince rule yeter; tam genişlik)
+     • Hover sadece link'te (about); diğer satır metni dokunulmaz
+
+   RTL: flex-direction satır içinde doğal akışla ters yöne dizilir; CSS
+   logical properties (margin-inline) hâlihazırda kullanılmadığı için
+   ek RTL kuralı gerekmez (HTML dir attribute'u flex ordering'i halleder).
+   ========================================================================== */
+
+.footer {
+  border-block-start: 1px solid var(--rule);
+  padding-block: var(--space-8);
+  padding-inline: var(--space-6);
+  background: var(--bg);
+  /* Sticky değil — sayfanın doğal sonu */
+}
+
+.inner {
+  max-inline-size: 70ch;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-family: var(--serif);
+  font-size: var(--fs-sm);
+  color: var(--fg-faint);
+}
+
+[lang='ar'] .inner {
+  font-family: var(--arabic-ui);
+  font-size: 0.95rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.brandMark {
+  display: inline-block;
+  inline-size: 6px;
+  block-size: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.brandName {
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+[lang='ar'] .brandName {
+  font-style: normal;
+}
+
+.sep {
+  color: var(--gold);
+  opacity: 0.55;
+  font-weight: 700;
+}
+
+.link {
+  color: var(--fg-muted);
+  text-decoration: none;
+  font-style: italic;
+  border-block-end: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+[lang='ar'] .link {
+  font-style: normal;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--accent);
+  border-block-end-color: var(--accent);
+  outline: none;
+}
+
+.edition {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+}
+
+[lang='ar'] .edition {
+  letter-spacing: 0;
+  font-size: 0.85rem;
+}

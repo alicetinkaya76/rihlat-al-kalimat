@@ -1,0 +1,36 @@
+# Lisān al-Fossil — _redirects (dilim 7/19.ι.A)
+#
+# Netlify + Cloudflare Pages uyumlu format. Vercel ayrı bir konfigürasyona
+# ihtiyaç duyar (vercel.json — eklendi).
+#
+# Sıralama önemli: ilk eşleşen kural galip; daha spesifik kurallar önce.
+#
+# (1) Yapılandırma-altı kaynaklar: doğrudan servis et (redirect değil)
+#     - /robots.txt, /sitemap.xml, /favicon.svg, /og-image.png, /og-image.svg,
+#       /apple-touch-icon.png — _redirects'te eşleşme yok, doğal servis.
+#     - Hashed asset'ler (/assets/*) — _headers'ta uzun-cache; redirect yok.
+#
+# (2) Kök `/` Accept-Language tabanlı redirect:
+#     - Türkçe okuyucu (Accept-Language: tr) → /tr
+#     - İngilizce okuyucu → /en
+#     - Arapça okuyucu → /ar
+#     - Diğerleri → /tr (varsayılan)
+#
+#     Cloudflare Pages + Netlify her ikisi de `Language=...` koşulunu
+#     destekler. Wildcard pattern Accept-Language header'ın ilk dil
+#     tag'iyle (öncelik sıralı) eşleştirilir.
+#
+# (3) SPA fallback — bütün rotalar / lazy bütünleyici 200 ile index.html'e
+#     fallback. Cloudflare Pages bunu otomatik yapıyor (zaten SPA fallback
+#     default'tur) ama explicit yazmak Netlify uyumu için gerekli.
+
+# (2) Accept-Language tabanlı root redirect
+/    /tr  302  Language=tr
+/    /en  302  Language=en
+/    /ar  302  Language=ar
+/    /tr  302
+
+# (3) SPA fallback — diğer her şey index.html'i serve etsin (client router
+#     ele alır). 200 status code = "rewrite" davranışı (yönlendirme değil,
+#     içerik servis).
+/*   /index.html   200

@@ -1,0 +1,80 @@
+/* ==========================================================================
+   TopBar · sticky chrome bar
+   Kaynak referansı: algorithm.html / al-khwarizmi.html .topbar bloku.
+   ========================================================================== */
+
+.topbar {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-block-end: 1px solid var(--rule);
+  padding: var(--space-4) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  font-family: var(--sans);
+  font-size: var(--fs-sm);
+}
+
+.brand {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  letter-spacing: 0.01em;
+  color: var(--fg);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  transition: color 0.25s ease;
+}
+
+.brand:hover {
+  color: var(--accent);
+}
+
+.brandMark {
+  display: inline-block;
+  inline-size: 6px;
+  block-size: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-inline-end: 4px;
+  vertical-align: middle;
+}
+
+.brandArabic {
+  font-family: var(--arabic);
+  font-style: normal;
+  color: var(--accent);
+  font-size: 1.1em;
+}
+
+.brandSeparator {
+  font-family: var(--arabic);
+  font-style: normal;
+  color: var(--accent);
+  font-size: 1.1em;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-3);
+  }
+  /* Dar viewport'ta Arapça brand ikinciliğe geçer. */
+  .brandArabic,
+  .brandSeparator {
+    display: none;
+  }
+}

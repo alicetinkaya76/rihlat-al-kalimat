@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Riḥlat al-Kalimāt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      GitHub Pages SPA fallback (dilim 7/39):
+      GitHub Pages hiçbir custom routing yapmaz; URL'e gelen path için statik dosya
+      yoksa 404.html'i serve eder. Single-page app için bu sorun: React Router
+      tarafından yönetilen path'ler (/word/coffee, /atlas/cordoba …) 404.html
+      üzerinden gelir.
+
+      Çözüm (Rafael Pedicini'nin küçük scriptinin uyarlaması — https://github.com/rafgraph/spa-github-pages):
+      404.html geldiğinde path'i query string'e gömüp index.html'e *replace-state*
+      redirect yap. index.html tarafında bir başka küçük script bu query'yi okuyup
+      history.replaceState ile geri yazar — React Router doğru path'i görür.
+
+      pathSegmentsToKeep = 1: GitHub Pages project site formatı kullanılıyor
+      (https://<user>.github.io/<repo>/). Sondaki segmentler tutulur. Custom domain
+      veya user/org site (https://<user>.github.io/) için 0 yapın.
+    -->
+    <script>
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname
+            .split('/')
+            .slice(0, 1 + pathSegmentsToKeep)
+            .join('/') +
+          '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(pathSegmentsToKeep)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+      );
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <p>JavaScript devre dışı — sayfa yönlendirme yapılamıyor. Lütfen JavaScript'i etkinleştirin veya doğrudan ana sayfayı ziyaret edin.</p>
+    </noscript>
+  </body>
+</html>

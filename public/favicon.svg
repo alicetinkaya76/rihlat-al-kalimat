@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Riḥlat al-Kalimāt">
+  <!--
+    Riḥlat al-Kalimāt favicon — dilim 7/15.γ(C).
+
+    Tasarım: Atlas pin geometrisinin manuscript-arka planlı kondansasyonu.
+      • 64×64 viewBox, küçük ölçeklerde (16×16, 32×32) bile net kalsın diye
+        keskin geometri ve yüksek-kontrast kenarlar.
+      • Sepia parchment arka plan (parchment fill), kenarda hafif yıpranma
+        (rounded rect biraz inset yapılarak orijinal-favicon hissi).
+      • Merkezi pin: halo (lazaward outer ring, parchment fill) + mark
+        (gold solid). Atlas.css'teki .atlas-pin geometrisinin saf
+        sembolik özeti.
+      • Dört köşede manuscript ✦ işareti (Atlas.tsx'te decorative star).
+        Çok küçük (~3% canvas), 16×16'da kaybolur, 32×32'de hissedilir.
+
+    Renkler hard-coded (CSS variable favicon'da kullanılamaz). Tema-bağımsız;
+    parchment her iki temada da makul (dark tema arka planı bg-deep değil
+    bg-edge ile uyumlu). İleride dark-favicon ayrı varyant olarak gelirse,
+    `media="(prefers-color-scheme: dark)"` link rel'i ile sunulur.
+
+    Sepia paleti (CSS'teki --parchment, --gold, --lazaward yaklaşıkları):
+      parchment: #f4ecd8
+      gold:      #c9941b
+      lazaward:  #1f4e7a  (Atlas halo stroke için)
+      sepia-ink: #5a4a36  (sınır çerçevesi için)
+  -->
+  <!-- Parchment background, rounded square (favicon konvansiyonu) -->
+  <rect width="64" height="64" rx="8" ry="8" fill="#f4ecd8" />
+
+  <!-- Hafif manuscript çerçeve, içte 2px boşluk -->
+  <rect
+    x="3.5" y="3.5"
+    width="57" height="57"
+    rx="6" ry="6"
+    fill="none"
+    stroke="#5a4a36"
+    stroke-width="0.7"
+    opacity="0.35"
+  />
+
+  <!-- Köşe ✦ işaretleri — küçük dekoratif yıldızlar, 64×64'te ~4px -->
+  <g fill="#5a4a36" opacity="0.45" font-family="serif" font-size="6" text-anchor="middle">
+    <text x="9" y="11">✦</text>
+    <text x="55" y="11">✦</text>
+    <text x="9" y="59">✦</text>
+    <text x="55" y="59">✦</text>
+  </g>
+
+  <!-- Merkezi pin: halo (büyük açık daire, lazaward stroke) + mark (gold filled) -->
+  <!-- Halo: r=14, stroke lazaward, parchment fill — Atlas pin halo'sunun yaklaşık ölçeği -->
+  <circle
+    cx="32" cy="32"
+    r="14"
+    fill="#f4ecd8"
+    stroke="#1f4e7a"
+    stroke-width="1.6"
+    opacity="0.85"
+  />
+  <!-- Mark: r=7, dolu gold — Atlas'taki .atlas-pin--word mark karşılığı -->
+  <circle
+    cx="32" cy="32"
+    r="7"
+    fill="#c9941b"
+    stroke="#5a4a36"
+    stroke-width="1"
+  />
+  <!-- İnce iç-vurgu noktası: merkezde küçük koyu sepia, illuminated-manuscript hissi -->
+  <circle cx="32" cy="32" r="1.5" fill="#5a4a36" opacity="0.7" />
+</svg>

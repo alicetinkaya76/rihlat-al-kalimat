@@ -1,0 +1,4 @@
+id	tier	journey_type	category	arabic_translit	arabic_script	meaning_tr	primary_form	variants	notes
+zero	showcase	translator	math_science	ṣifr	صفر	Boş, hiçlik	zero	en:cipher | fr:zéro | it:zero | es:cero | de:Null	Hiçliği matematiksel değere dönüştüren konsept
+algorithm	showcase	translator	math_science	al-Khwārizmī	الخوارزمي	Harezmli (kişi adı)	algorithm	en:algorithm | fr:algorithme | es:algoritmo | it:algoritmo | de:Algorithmus	9. yy matematikçisi El-Harezmi'nin Latinceleşmiş adı
+algebra	showcase	translator	math_science	al-jabr	الجبر	İndirgeme, onarma	algebra	en:algebra | fr:algèbre | es:álgebra | it:algebra	Denklemde eksik tarafı tamamlama

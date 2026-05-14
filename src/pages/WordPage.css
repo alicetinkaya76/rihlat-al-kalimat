@@ -1,0 +1,980 @@
+/* ============================================================================
+   WordPage global styles — algorithm.html prototipinden harfiyen alındı.
+   tokens.css ÖNCE yüklenmeli (main.tsx import sırası garanti eder).
+
+   Bu dosya WordPage *ve* sonraki Person/Book sayfalarının ortak
+   stratigrafi/layer tipografisini taşıyor. Sayfa-spesifik bloklar
+   (siblings, sources, colophon) Word\u2019a özel; ileride Person/Book
+   ayrılırken kendi blocklarına taşınabilir.
+   ============================================================================ */
+
+/* ----- CRUMBS (her iki sayfa türünde paylaşımlı) ----- */
+.crumbs {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--fg-faint);
+  margin-block-end: var(--space-8);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.crumbs a {
+  color: inherit;
+  text-decoration: none;
+  border-block-end: 1px dotted var(--fg-faint);
+  padding-block-end: 1px;
+  transition: color 0.2s;
+}
+.crumbs a:hover { color: var(--accent); border-block-end-color: var(--accent); }
+.crumbs .sep { color: var(--rule); }
+
+
+/* ----- WORD HEADER, başlık, varyantlar, IPA, rozet, literal ----- */
+.word-header {
+  position: relative;
+  padding: var(--space-24) var(--space-8) var(--space-16);
+  border-block-end: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.word-header::after {
+  /* Decorative gold rule under the header */
+  content: "";
+  position: absolute;
+  inset-block-end: -1px;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  inline-size: 120px;
+  block-size: 1px;
+  background: var(--gold);
+  box-shadow: 0 0 0 1px var(--bg);
+}
+[lang="ar"] .word-header::after { transform: translateX(50%); }
+
+.crumbs {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--fg-faint);
+  margin-block-end: var(--space-8);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.crumbs a {
+  color: inherit;
+  text-decoration: none;
+  border-block-end: 1px dotted var(--fg-faint);
+  padding-block-end: 1px;
+  transition: color 0.2s;
+}
+.crumbs a:hover { color: var(--accent); border-block-end-color: var(--accent); }
+.crumbs .sep { color: var(--rule); }
+
+.word-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(3rem, 11vw, var(--fs-display));
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  margin: 0 0 var(--space-6);
+  font-feature-settings: "kern", "onum", "smcp" off;
+  position: relative;
+}
+[lang="ar"] .word-title {
+  font-family: var(--arabic);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.15;
+  font-size: clamp(3.2rem, 11vw, 8rem);
+}
+.word-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  align-items: baseline;
+  font-family: var(--serif);
+  font-size: var(--fs-lg);
+  color: var(--fg-muted);
+  margin-block-end: var(--space-8);
+  padding-block-start: var(--space-4);
+  border-block-start: 1px solid var(--rule);
+  max-inline-size: 70ch;
+}
+.variants .v {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.variants .v-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+.variants .v-form {
+  font-style: italic;
+  color: var(--fg);
+  font-size: var(--fs-xl);
+  font-weight: 500;
+}
+.variants .v[data-lang="ar"] .v-form {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+.variants .v.modern .v-form { color: var(--accent); }
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  align-items: center;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--fg-muted);
+  letter-spacing: 0.04em;
+}
+.meta-row .ipa {
+  color: var(--fg);
+  font-size: var(--fs-sm);
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+.meta-row .ipa::before { content: ""; opacity: 0.5; margin-inline-end: 0.4em; font-family: var(--sans); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.3rem 0.7rem 0.32rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+.badge[lang="ar"] {
+  font-family: var(--arabic-ui);
+  font-size: var(--fs-sm);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.badge::before {
+  content: "";
+  inline-size: 5px;
+  block-size: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.audio-btn {
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--fg-muted);
+  padding: 0.35rem 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.25s;
+}
+.audio-btn:hover { color: var(--accent); border-color: var(--accent); }
+.audio-btn svg { inline-size: 12px; block-size: 12px; }
+
+.literal {
+  margin-block-start: var(--space-6);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-lg);
+  color: var(--fg-muted);
+  max-inline-size: 60ch;
+  line-height: 1.5;
+  border-inline-start: 2px solid var(--gold);
+  padding-inline-start: var(--space-4);
+}
+[lang="ar"] .literal {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: 1.25rem;
+}
+
+
+/* ----- STRATIGRAPHY ----- */
+/* ========================================================================
+   STRATIGRAPHY LAYOUT
+   ======================================================================== */
+.strat-layout {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: var(--space-12);
+  max-inline-size: 1400px;
+  margin-inline: auto;
+  padding: var(--space-16) var(--space-8);
+  position: relative;
+}
+[lang="ar"] .strat-layout { grid-template-columns: 130px 1fr; }
+
+/* ----- Stratigraphy ribbon (the signature element) ----- */
+.strat-ribbon {
+  position: sticky;
+  inset-block-start: 80px;
+  block-size: calc(100vh - 100px);
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+}
+.strat-title {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--fg-faint);
+  font-size: 0.6rem;
+  margin-block-end: var(--space-4);
+  padding-inline-start: var(--space-1);
+}
+.strat-track {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.strat-track::before {
+  /* The vertical column / "soil core" */
+  content: "";
+  position: absolute;
+  inset-block: 8px;
+  inset-inline-start: 18px;
+  inline-size: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--rule) 0%,
+    var(--rule) 100%
+  );
+}
+.strat-progress {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline-start: 18px;
+  inline-size: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent) 0%,
+    var(--gold) 50%,
+    var(--lazaward) 100%
+  );
+  block-size: 0;
+  transition: block-size 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1px;
+  box-shadow: 0 0 4px var(--gold-pale);
+}
+
+.strat-stop {
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+  padding-inline-start: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-block-start: 4px;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+}
+.strat-stop[data-active="true"] { opacity: 1; }
+.strat-stop[data-passed="true"] { opacity: 0.7; }
+
+.strat-dot {
+  position: absolute;
+  inset-block-start: 6px;
+  inset-inline-start: 11px;
+  inline-size: 16px;
+  block-size: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--rule);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+.strat-stop[data-active="true"] .strat-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px var(--highlight);
+}
+.strat-stop[data-passed="true"] .strat-dot {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.strat-year {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--fg);
+  font-weight: 500;
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+.strat-stop[data-active="true"] .strat-year { color: var(--accent); }
+
+.strat-place {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+  margin-block-start: 2px;
+  line-height: 1.25;
+}
+[lang="ar"] .strat-place {
+  font-family: var(--arabic);
+  font-style: normal;
+}
+.strat-stop[data-active="true"] .strat-place { color: var(--fg); }
+
+/* ----- Proportional mode (dilim 7/15.γ.B) -----
+   Eşit modda flex:1 her stop'a eşit yer ayırır; proportional modda
+   stop'lar position:absolute olur, inline style ile --strat-pos
+   (yüzde) kullanırlar. Track'a sabit yükseklik vermek lazım çünkü
+   stop'lar absolute olunca flex collapse olur.
+
+   Stop yıl-orantılı modda yığılabilir (örn. modern stratum %0, ikinci
+   stratum %4 — sıkışmış); CSS minimum-gap garantisi yok (gerçek yıl
+   mesafelerini göstermek argümanın merkezi).
+
+   Editöryel argüman: eşit mod *okumayı kolaylaştırır* (5 nokta eşit
+   ritimde); orantılı mod *gerçeği gösterir* (modern yığınlar üstte,
+   eski stratumlar geniş yayılır). İki sicili kullanıcı tercihi olarak
+   sunmak — okumakla bilmek arasındaki seçim. */
+.strat-track--proportional {
+  /* Absolute-pozitionlamada flex collapse olmasın diye sabit yükseklik.
+     5 stop için 380px makul (eşit modda da yaklaşık bu yüksekliği alıyor;
+     stop'lar arası ortalama ~76px). Ribbon parent sticky olduğu için
+     scroll'la birlikte hareket eder. */
+  block-size: 380px;
+  display: block;
+}
+.strat-track--proportional .strat-stop {
+  /* Proportional stop'lar absolute olur ve --strat-pos'a göre konumlanır.
+     `top` inset-block-start ile aynı şey (logical property), --strat-pos
+     stop'un dot merkez konumunu belirler; padding-block-start düzeltmesi
+     yok çünkü stop kendi içinde flex-column, dot zaten ~6px üstten. */
+  position: absolute;
+  inset-block-start: var(--strat-pos, 0%);
+  inset-inline-start: 0;
+  inline-size: 100%;
+  flex: none;
+  /* Transform translateY(-6px) — dot vertikal centerlama (dot'un kendisi
+     stop'un üst tarafında 6px offset'le). Bu hesap göz-kararı; gerçek
+     dot konumu .strat-dot'un inset-block-start: 6px değerine bağlı. */
+  transform: translateY(-6px);
+  /* Eşit modun flex:1 padding'ini override et — proportional'da padding
+     gereksiz çünkü stop kendi konumunu hesaplar. */
+  padding-block-start: 0;
+}
+
+/* ----- Mode toggle button (dilim 7/15.γ.B) -----
+   Stratigraphy başlığının yanında küçük bir geometric glyph toggle.
+   Default: ≡ (eşit aralık, üç paralel çizgi) — UI eşit modda olduğunu
+   söyler; tıklanırsa orantılı moda geçilir. Aktif (proportional) iken
+   glyph ⫷ (üç sıkışan paralel çizgi) ile değişir.
+
+   Stratigraphy parent flex column; toggle title'ın hemen altında, küçük
+   (24×24), saydam — bilgiye benzer ama "kontrol" özelliği görünür. */
+.strat-mode-toggle {
+  margin-block-start: var(--space-2);
+  margin-block-end: var(--space-3);
+  inline-size: 24px;
+  block-size: 24px;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--fg-muted);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.strat-mode-toggle:hover {
+  border-color: var(--gold);
+  color: var(--fg);
+}
+.strat-mode-toggle--active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg);
+}
+.strat-mode-toggle--active:hover {
+  color: var(--bg);
+}
+
+/* ----- Mobile: stratigraphy becomes horizontal top progress ----- */
+@media (max-width: 900px) {
+  .strat-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    padding: var(--space-8) var(--space-4);
+  }
+  .strat-ribbon {
+    position: sticky;
+    inset-block-start: 64px;
+    block-size: auto;
+    background: var(--bg);
+    padding: var(--space-3) 0;
+    border-block-end: 1px solid var(--rule);
+    z-index: 50;
+    margin-inline: calc(-1 * var(--space-4));
+    padding-inline: var(--space-4);
+  }
+  .strat-title { display: none; }
+  .strat-mode-toggle {
+    /* Mobil yatay barda yıl-orantılı yer kazandırmıyor — JS hâlâ
+       proportional'a izin verir ama görsel olarak track yatay olduğu için
+       inset-block-start absolute pozisyonu yatay'da işe yaramaz. Toggle'ı
+       mobilde gizle, default eşit modda kal. */
+    display: none;
+  }
+  .strat-track--proportional {
+    /* Mobilde proportional modu efektif olarak devre dışı bırak — track
+       yatay (flex-direction: row), absolute children işe yaramaz.
+       Display, block-size, ve flex-direction'ı eşit moda zorla. */
+    block-size: auto;
+    display: flex;
+  }
+  .strat-track--proportional .strat-stop {
+    position: relative;
+    inset-block-start: auto;
+    inline-size: auto;
+    flex: 1;
+    transform: none;
+    padding-block-start: 4px;
+  }
+  .strat-track {
+    flex-direction: row;
+    block-size: auto;
+  }
+  .strat-track::before {
+    inset-block-start: 50%;
+    inset-block-end: auto;
+    inset-inline: 8px;
+    block-size: 2px;
+    inline-size: auto;
+    transform: translateY(-50%);
+  }
+  .strat-progress {
+    inset-block-start: 50%;
+    inset-inline-start: 8px;
+    inline-size: 0;
+    block-size: 2px;
+    transform: translateY(-50%);
+    background: linear-gradient(to right, var(--accent), var(--gold), var(--lazaward));
+    transition: inline-size 0.5s ease;
+  }
+  [dir="rtl"] .strat-progress {
+    inset-inline-start: auto;
+    inset-inline-end: 8px;
+  }
+  .strat-stop {
+    padding: 0;
+    padding-block-start: 0;
+    flex: 1;
+    align-items: center;
+    text-align: center;
+  }
+  .strat-dot {
+    position: relative;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    margin-block-end: 4px;
+    inline-size: 12px;
+    block-size: 12px;
+  }
+  .strat-place { display: none; }
+  .strat-year { font-size: 0.65rem; }
+}
+
+
+/* ----- LAYERS ----- */
+/* ========================================================================
+   LAYERS  (the 5 strata)
+   ======================================================================== */
+.layers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  max-inline-size: 720px;
+}
+@media (max-width: 900px) {
+  .layers { gap: var(--space-16); }
+}
+
+.layer {
+  position: relative;
+  scroll-margin-block-start: 120px;
+}
+
+.layer-rule {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-block-end: var(--space-6);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+.layer-rule .rule-line {
+  flex: 1;
+  block-size: 1px;
+  background: var(--rule);
+}
+.layer-rule .rule-num {
+  color: var(--gold);
+  font-weight: 500;
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+
+.layer-year {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-2xl);
+  color: var(--accent);
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline-block;
+}
+[lang="ar"] .layer-year { font-family: var(--arabic); font-style: normal; }
+
+.layer-place {
+  font-family: var(--mono);
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  letter-spacing: 0.06em;
+  margin-block-start: var(--space-1);
+  display: block;
+}
+
+.layer-headline {
+  font-family: var(--serif);
+  font-size: var(--fs-3xl);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: var(--space-4) 0 var(--space-6);
+  color: var(--fg);
+  letter-spacing: -0.015em;
+  max-inline-size: 22ch;
+}
+[lang="ar"] .layer-headline {
+  font-family: var(--arabic);
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1.4;
+}
+.layer-headline em {
+  font-style: italic;
+  color: var(--accent-2);
+}
+[lang="ar"] .layer-headline em { color: var(--accent-2); font-style: normal; }
+
+.layer-body {
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--fg);
+  max-inline-size: 65ch;
+}
+[lang="ar"] .layer-body {
+  font-family: var(--arabic);
+  font-size: 1.22rem;
+  line-height: 2;
+}
+.layer-body p {
+  margin: 0 0 1.1em;
+}
+.layer-body em {
+  font-style: italic;
+  color: var(--fg);
+}
+.layer-body .term {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 500;
+  cursor: help;
+  border-block-end: 1px dotted var(--accent);
+  padding-block-end: 1px;
+  transition: all 0.3s ease;
+}
+.layer-body .term:hover {
+  color: var(--gold);
+  border-block-end-color: var(--gold);
+  text-shadow: 0 0 8px var(--highlight);
+}
+.layer-body .term[lang="ar"] {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.05em;
+}
+.layer-body .ar-inline {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--fg);
+  unicode-bidi: isolate;
+}
+
+/* Drop cap for first layer (each language div has its own first paragraph) */
+.layer:first-of-type [lang]:not([lang="ar"]) > p:first-of-type::first-letter,
+[lang="tr"] .layer:first-of-type .layer-body > div.lang-tr > p:first-of-type::first-letter,
+[lang="en"] .layer:first-of-type .layer-body > div.lang-en > p:first-of-type::first-letter {
+  font-family: var(--serif);
+  font-size: 4.2em;
+  font-weight: 500;
+  line-height: 0.9;
+  float: inline-start;
+  margin-inline-end: 0.08em;
+  margin-block-start: 0.06em;
+  color: var(--accent);
+  font-feature-settings: "smcp" off;
+}
+/* Arabic: no Western drop-cap convention; keep flat */
+[lang="ar"] .layer-body > div > p:first-of-type::first-letter {
+  font-size: 1em;
+  float: none;
+  margin: 0;
+  color: inherit;
+}
+
+.actor-tag {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-block-start: var(--space-6);
+  padding-inline-start: var(--space-4);
+  border-inline-start: 2px solid var(--gold);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.actor-tag .actor-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-base);
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--fg);
+  font-weight: 500;
+}
+[lang="ar"] .actor-tag .actor-name {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-weight: 700;
+}
+
+
+/* ----- SIBLINGS, SOURCES, COLOPHON, ANIMATIONS, RTL ----- */
+/* ========================================================================
+   SECTION FRAME — başlık dilimi (Siblings / Sources / PersonCircle /
+   RelatedWords-grid hepsi tek tutarlı çerçeveyi kullanır). Manuscript-
+   stratigrafi prototiplerinin "uppercase mono caps + gold rule" başlığı.
+   ======================================================================== */
+.section {
+  max-inline-size: 1400px;
+  margin: 0 auto;
+  padding-block-end: var(--space-12);
+}
+.section > :not(.section-head) {
+  padding-inline: var(--space-8);
+}
+.section-head {
+  padding: var(--space-12) var(--space-8) var(--space-6);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  border-block-end: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-block-end: var(--space-8);
+}
+.section-head::before {
+  content: "";
+  inline-size: 24px;
+  block-size: 1px;
+  background: var(--gold);
+}
+[lang="ar"] .section-head {
+  font-family: var(--arabic-ui);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: var(--fs-sm);
+}
+.section-num {
+  color: var(--gold);
+  font-weight: 500;
+}
+.section-title {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  margin: 0;
+  font-weight: 500;
+}
+[lang="ar"] .section-title { font-weight: 700; }
+
+
+/* ========================================================================
+   SIBLINGS  (akraba kelimeler)
+   ======================================================================== */
+.siblings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.sibling {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg-deep);
+  border: 1px solid var(--rule);
+  padding: var(--space-6);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+.sibling::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 2px;
+  background: var(--gold);
+  transform-origin: inline-start;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.sibling:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.sibling:hover::before { transform: scaleX(1); }
+
+.sibling-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-block-end: var(--space-4);
+}
+.sibling-title {
+  font-family: var(--serif);
+  font-size: var(--fs-2xl);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--fg);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+[lang="ar"] .sibling-title {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-weight: 700;
+}
+.sibling-arabic {
+  font-family: var(--arabic);
+  font-size: 1.5rem;
+  color: var(--accent);
+  font-weight: 700;
+  unicode-bidi: isolate;
+}
+.sibling-translit {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--fg-muted);
+  letter-spacing: 0.05em;
+  margin-block-end: var(--space-3);
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+.sibling-meaning {
+  font-family: var(--serif);
+  font-size: var(--fs-md);
+  font-style: italic;
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+[lang="ar"] .sibling-meaning {
+  font-family: var(--arabic);
+  font-style: normal;
+}
+.sibling-note {
+  margin-block-start: var(--space-4);
+  padding-block-start: var(--space-3);
+  border-block-start: 1px dotted var(--rule);
+  font-family: var(--sans);
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  line-height: 1.55;
+}
+[lang="ar"] .sibling-note {
+  font-family: var(--arabic-ui);
+}
+
+/* ========================================================================
+   SOURCES
+   ======================================================================== */
+.sources-list {
+  font-family: var(--serif);
+  font-size: var(--fs-md);
+  line-height: 1.7;
+  color: var(--fg);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-inline-size: 80ch;
+  counter-reset: src;
+}
+.sources-list li {
+  counter-increment: src;
+  position: relative;
+  padding-block: var(--space-4);
+  padding-inline-start: var(--space-12);
+  border-block-end: 1px solid var(--rule);
+}
+.sources-list li:last-child { border-block-end: 0; }
+.sources-list li::before {
+  content: counter(src, decimal-leading-zero);
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: var(--space-4);
+  font-family: var(--mono);
+  font-size: var(--fs-sm);
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+[lang="ar"] .sources-list { font-family: var(--arabic); font-size: 1.15rem; line-height: 2; }
+.sources-list em { font-style: italic; color: var(--accent); }
+
+/* ========================================================================
+   FOOTER
+   ======================================================================== */
+.colophon {
+  border-block-start: 1px solid var(--rule);
+  padding: var(--space-12) var(--space-8);
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--fg-muted);
+  font-size: var(--fs-md);
+  max-inline-size: 60ch;
+  margin-inline: auto;
+}
+[lang="ar"] .colophon {
+  font-family: var(--arabic);
+  font-style: normal;
+  font-size: 1.15rem;
+  line-height: 2;
+}
+.colophon-mark {
+  display: inline-block;
+  inline-size: 4px;
+  block-size: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin: 0 var(--space-4);
+  vertical-align: middle;
+}
+
+/* ========================================================================
+   ANIMATIONS — staggered reveal on load
+   ======================================================================== */
+@keyframes ink-bloom {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.reveal {
+  opacity: 0;
+  animation: ink-bloom 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.r-1 { animation-delay: 0.1s; }
+.r-2 { animation-delay: 0.25s; }
+.r-3 { animation-delay: 0.4s; }
+.r-4 { animation-delay: 0.55s; }
+.r-5 { animation-delay: 0.7s; }
+.r-6 { animation-delay: 0.85s; }
+
+@keyframes draw-rule {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.1s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================================================
+   RTL refinements
+   ======================================================================== */
+[dir="rtl"] .word-title em { display: inline; }
+[dir="rtl"] .layer:first-of-type .layer-body > p:first-of-type::first-letter {
+  float: none;
+  margin: 0;
+}
+

@@ -1,0 +1,55 @@
+/* ==========================================================================
+   LangSwitch · 3-state pill (TR / EN / العربية)
+   Kaynak: algorithm.html / al-khwarizmi.html .lang-switch bloku.
+   ========================================================================== */
+
+.langSwitch {
+  display: flex;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  font-family: var(--sans);
+}
+
+.button {
+  background: transparent;
+  border: 0;
+  padding: 0.4rem 0.85rem;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  cursor: pointer;
+  border-inline-end: 1px solid var(--rule);
+  transition: all 0.25s ease;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.button:last-child {
+  border-inline-end: 0;
+}
+
+.button:hover {
+  color: var(--fg);
+  background: var(--bg-deep);
+}
+
+.button[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--parchment);
+  letter-spacing: 0.1em;
+}
+
+[data-theme='dark'] .button[aria-pressed='true'] {
+  background: var(--gold-pale);
+  color: var(--ink);
+}
+
+.arabicButton {
+  font-family: var(--arabic-ui);
+  font-size: var(--fs-sm);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+}

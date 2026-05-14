@@ -1,0 +1,35 @@
+/* ==========================================================================
+   ThemeToggle · 36×36 daire buton, sun/moon SVG
+   Kaynak: algorithm.html / al-khwarizmi.html .theme-toggle bloku.
+   ========================================================================== */
+
+.toggle {
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  inline-size: 36px;
+  block-size: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--fg-muted);
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  padding: 0;
+}
+
+.toggle:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  transform: rotate(15deg);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.icon {
+  inline-size: 18px;
+  block-size: 18px;
+}

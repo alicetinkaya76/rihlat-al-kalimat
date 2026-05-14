@@ -1,0 +1,10 @@
+{
+  "_comment": "Riḥlat al-Kalimāt site config — dilim 7/19.ι.A. Source-of-truth for production origin used by both Vite (vite.config.ts → rihlaOriginInject) and the sitemap generator (scripts/generate-sitemap.mjs). When the real domain is registered, update `origin` here; SITE_ORIGIN env still overrides this file. Placeholder until decision.",
+  "origin": "https://rihla.example",
+  "_originStatus": "placeholder",
+  "_originStatusOptions": [
+    "placeholder — gerçek domain henüz tescil edilmedi",
+    "staging — preview deploy URL (örn. rihla.pages.dev veya https://rihla-staging.netlify.app)",
+    "production — kanonik domain (örn. https://rihla.com)"
+  ]
+}

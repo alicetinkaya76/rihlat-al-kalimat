@@ -1,0 +1,77 @@
+/* =========================================================================
+   MANUSCRIPT LOADER — Lazy-loading state (dilim 7/10.C)
+   ----------------------------------------------------------------------
+   RouteFallback + EntityLoading'in paylaştığı görsel. Yumuşak pulse'lu
+   ◇ glyph + italik loading metni. CSS-only animasyon.
+
+   Animasyon karakteri:
+     • 1.8s döngü — yavaş, sakin, dikkat çekmez
+     • opacity 0.25 → 0.75 → 0.25
+     • scale 0.95 → 1.05 → 0.95
+     • ease-in-out — keskin transitions yok
+     • prefers-reduced-motion: animasyon kapanır, statik kalır
+   ========================================================================= */
+
+.manuscript-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  min-block-size: 50vh;
+}
+
+.manuscript-loader-mark {
+  font-size: 1.75rem;
+  color: var(--gold-leaf, var(--accent));
+  /* Ana opacity statik (0.4), pulse animasyonu ile 0.25-0.75 arasında.
+     Initial 0.4 — animasyon başlamadan ortada bir değer (FOUC önleyici). */
+  opacity: 0.4;
+  line-height: 1;
+  animation: manuscript-loader-pulse 1.8s ease-in-out infinite;
+  /* GPU-katmanı için: transform animasyonu çakışırsa subpixel paint
+     azalır. Sadece opacity + transform — composite-only animation. */
+  will-change: opacity, transform;
+}
+
+.manuscript-loader-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--fg-faint);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+[lang="ar"] .manuscript-loader-text {
+  /* Amiri italic desteklemez — Arapça loading metnini normal stilde,
+     ama serif fontunda tut. Letter-spacing düşür (Arapça'da etkisi
+     genellikle istenmez). */
+  font-family: var(--arabic);
+  font-style: normal;
+  letter-spacing: 0;
+  font-size: var(--fs-lg);
+}
+
+@keyframes manuscript-loader-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.05);
+  }
+}
+
+/* Reduced motion — animasyon kapanır, ◇ orta opacity'de statik kalır.
+   "Loading var" işareti hâlâ taşınır (◇ glyph + metin), sadece
+   pulse'un kinetik öğesi çıkar. WCAG 2.3.3 (animation from
+   interactions) ve genel motion-sensitivity disiplini. */
+@media (prefers-reduced-motion: reduce) {
+  .manuscript-loader-mark {
+    animation: none;
+    opacity: 0.5;
+  }
+}
