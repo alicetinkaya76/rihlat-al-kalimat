@@ -139,6 +139,19 @@ const PLACES: AtlasPlace[] = [
     region: { tr: 'Aral Gölü güneyi', en: 'south of the Aral Sea', ar: 'جنوبَ بحر آرال' },
   },
   {
+    // Kûfe — Mezopotamya'nın güney-batı yakasında, Bağdat'tan ~170 km
+    // güney-doğu. 7. yy'da Hz. Ömer'in kurduğu garnizon şehir; 8.-9. yy'da
+    // erken İslamî dilbilim, hukuk, ve KİMYA (al-kīmiyāʾ) merkezi.
+    // Câbir b. Hayyân korpusunun yazıldığı yer olarak rivayet edilir;
+    // *al-iksīr*, *al-anbīq*, *al-qalī*, *al-țilasm* gibi terimler bu
+    // şehrin laboratuvar geleneğinden Bağdat'a, oradan Latin Avrupa'sına
+    // geçti. Atlas konumu: Bağdat'ın güney-doğusu, Basra'nın kuzey-batısı.
+    slug: 'kufah',
+    latlng: [32.0285, 44.4045],
+    name: { tr: 'Kûfe', en: 'Kufa · al-Kūfah', ar: 'الكوفة' },
+    region: { tr: 'Mezopotamya', en: 'Mesopotamia', ar: 'بلاد الرافدين' },
+  },
+  {
     // Lizbon — Portekiz tatlı portakalının (Citrus × sinensis) 1520'lerde
     // Akdeniz havzasına ulaştığı Atlantik kapısı. Vasco da Gama sonrası
     // baharat ağının yan ürünü; modern *portakal/portocală/portokali*
@@ -155,6 +168,19 @@ const PLACES: AtlasPlace[] = [
     latlng: [51.5074, -0.1278],
     name: { tr: 'Londra', en: 'London', ar: 'لندن' },
     region: { tr: 'İngiltere', en: 'England', ar: 'إنكلترا' },
+  },
+  {
+    // Merrakeş — Mağrib'in başkenti, Murâbıt ve Muvahhid sülalelerinin
+    // payitahtı (1062-1269). İbn Rüşd'ün (Averroes) 1198'de sürgünde
+    // öldüğü yer; Endülüs felsefe geleneğinin son düğümü. Endülüs ile
+    // Sahra-altı Afrika arasında ticaret-bilim ekseni: Atlas dağlarının
+    // kuzey eteklerinde, Cordoba'nın güney-batısı, Cebelitarık'tan
+    // yaklaşık 600 km güney. Latin Avrupa'sının Averroist okumasının
+    // arka-coğrafyası.
+    slug: 'marrakech',
+    latlng: [31.6295, -7.9811],
+    name: { tr: 'Merrakeş', en: 'Marrakech', ar: 'مَرّاكُش' },
+    region: { tr: 'Mağrib · Atlas Dağları eteği', en: 'al-Maghrib · the foot of the Atlas mountains', ar: 'المَغرب · سَفحُ جِبالِ الأَطلَس' },
   },
   {
     // Muha · Mokha · al-Mukhā — Yemen'in Kızıldeniz kıyısındaki liman
@@ -219,6 +245,21 @@ const PLACES: AtlasPlace[] = [
     latlng: [43.7228, 10.4017],
     name: { tr: 'Pisa', en: 'Pisa', ar: 'بيزا' },
     region: { tr: 'Toskana · Tirenya kıyısı', en: 'Tuscany · the Tyrrhenian coast', ar: 'توسكانا · ساحلُ تيرّينيا' },
+  },
+  {
+    // Rey · al-Rayy — Tahran'ın güney-doğu eteğinde (modern Şehr-i Rey),
+    // Sâsânî-İslam geçiş döneminin entelektüel merkezlerinden. 9.-11. yy
+    // arasında bîmâristanı (tıp hastanesi) ile ünlü; Ebû Bekir er-Râzî
+    // (854-925) burada doğdu, baş-hekimlik yaptı, hastanenin konumunu
+    // bir parça etin asılıp hangi noktada en az bozulduğunu gözleyerek
+    // seçtiği rivayet edilir. Bağdat ile Horasan arasındaki ana güzergâhın
+    // düğümü; İslam'ın altın çağı şehirlerinin Mezopotamya-İran-Mâverâünnehir
+    // hattındaki orta düğümü. Atlas konumu: Hamadan'ın kuzey-doğusu,
+    // Bağdat'ın kuzey-doğusu, Buhara'nın güney-batısı.
+    slug: 'rey',
+    latlng: [35.5933, 51.4339],
+    name: { tr: 'Rey · Şehr-i Rey', en: 'Rayy', ar: 'الرَّيّ' },
+    region: { tr: 'Cibâl · İran platosu', en: 'Jibāl · the Iranian plateau', ar: 'الجِبال · هَضبةُ إيران' },
   },
   {
     slug: 'rome',

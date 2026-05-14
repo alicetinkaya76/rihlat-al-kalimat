@@ -512,6 +512,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://rihla.example/tr/kelime/alfalfa</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/alfalfa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/alfalfa" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/alfalfa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/alfalfa" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kelime/alfalfa</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/alfalfa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/alfalfa" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/alfalfa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/alfalfa" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kelime/alfalfa</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/alfalfa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/alfalfa" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/alfalfa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/alfalfa" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rihla.example/tr/kelime/algebra</loc>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/algebra" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/algebra" />
@@ -602,6 +632,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://rihla.example/tr/kelime/apricot</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/apricot" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/apricot" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/apricot" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/apricot" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kelime/apricot</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/apricot" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/apricot" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/apricot" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/apricot" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kelime/apricot</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/apricot" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/apricot" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/apricot" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/apricot" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rihla.example/tr/kelime/arabesque</loc>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/arabesque" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/arabesque" />
@@ -662,6 +722,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://rihla.example/tr/kelime/artichoke</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/artichoke" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/artichoke" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/artichoke" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/artichoke" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kelime/artichoke</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/artichoke" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/artichoke" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/artichoke" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/artichoke" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kelime/artichoke</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/artichoke" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/artichoke" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/artichoke" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/artichoke" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rihla.example/tr/kelime/assassin</loc>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/assassin" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/assassin" />
@@ -692,6 +782,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://rihla.example/tr/kelime/aubergine</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/aubergine" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/aubergine" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/aubergine" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/aubergine" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kelime/aubergine</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/aubergine" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/aubergine" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/aubergine" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/aubergine" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kelime/aubergine</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/aubergine" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/aubergine" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/aubergine" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/aubergine" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rihla.example/tr/kelime/azimuth</loc>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/azimuth" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/azimuth" />
@@ -717,6 +837,36 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/azimuth" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/azimuth" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/azimuth" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/tr/kelime/camphor</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/camphor" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/camphor" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/camphor" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/camphor" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kelime/camphor</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/camphor" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/camphor" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/camphor" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/camphor" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kelime/camphor</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/camphor" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/camphor" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/camphor" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/camphor" />
     <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1112,6 +1262,66 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://rihla.example/tr/kelime/monsoon</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/monsoon" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/monsoon" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/monsoon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/monsoon" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kelime/monsoon</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/monsoon" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/monsoon" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/monsoon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/monsoon" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kelime/monsoon</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/monsoon" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/monsoon" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/monsoon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/monsoon" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/tr/kelime/nadir</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/nadir" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/nadir" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/nadir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/nadir" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kelime/nadir</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/nadir" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/nadir" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/nadir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/nadir" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kelime/nadir</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/nadir" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/nadir" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/nadir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/nadir" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rihla.example/tr/kelime/orange</loc>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/orange" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/orange" />
@@ -1292,6 +1502,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://rihla.example/tr/kelime/talisman</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/talisman" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/talisman" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/talisman" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/talisman" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kelime/talisman</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/talisman" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/talisman" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/talisman" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/talisman" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kelime/talisman</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/talisman" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/talisman" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kelime/talisman" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kelime/talisman" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rihla.example/tr/kelime/tariff</loc>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kelime/tariff" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kelime/tariff" />
@@ -1437,6 +1677,36 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/al-khwarizmi" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/al-khwarizmi" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/al-khwarizmi" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/tr/kisi/al-razi</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kisi/al-razi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/al-razi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/al-razi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/al-razi" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kisi/al-razi</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kisi/al-razi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/al-razi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/al-razi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/al-razi" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kisi/al-razi</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kisi/al-razi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/al-razi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/al-razi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/al-razi" />
     <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1592,6 +1862,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://rihla.example/tr/kisi/ibn-rushd</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kisi/ibn-rushd" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/ibn-rushd" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/ibn-rushd" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/ibn-rushd" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kisi/ibn-rushd</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kisi/ibn-rushd" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/ibn-rushd" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/ibn-rushd" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/ibn-rushd" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kisi/ibn-rushd</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kisi/ibn-rushd" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/ibn-rushd" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/ibn-rushd" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/ibn-rushd" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rihla.example/tr/kisi/ibn-sina</loc>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kisi/ibn-sina" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/ibn-sina" />
@@ -1617,6 +1917,36 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/ibn-sina" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/ibn-sina" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/ibn-sina" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/tr/kisi/jabir-ibn-hayyan</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kisi/jabir-ibn-hayyan" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/jabir-ibn-hayyan" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/jabir-ibn-hayyan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/jabir-ibn-hayyan" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/en/kisi/jabir-ibn-hayyan</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kisi/jabir-ibn-hayyan" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/jabir-ibn-hayyan" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/jabir-ibn-hayyan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/jabir-ibn-hayyan" />
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rihla.example/ar/kisi/jabir-ibn-hayyan</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rihla.example/tr/kisi/jabir-ibn-hayyan" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rihla.example/en/kisi/jabir-ibn-hayyan" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rihla.example/ar/kisi/jabir-ibn-hayyan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rihla.example/tr/kisi/jabir-ibn-hayyan" />
     <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
