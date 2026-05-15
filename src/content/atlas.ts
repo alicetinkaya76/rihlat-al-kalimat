@@ -205,6 +205,20 @@ const PLACES: AtlasPlace[] = [
     region: { tr: 'Boğaziçi', en: 'the Bosphorus', ar: 'البوسفور' },
   },
   {
+    // Edirne — Trakya'nın kuzey-batı kapı şehri, modern Türkiye-Yunanistan-
+    // Bulgaristan sınır-üçgenine yakın. Bizans Adrianopolis'i; 1369'da
+    // Osmanlı fethi sonrası 1453'e kadar imparatorluğun başkenti. Mimar
+    // Sinan'ın *ustalık eserim* dediği Selimiye Camisi (1568-75) burada;
+    // 31.5 m çaplı tek-kubbesi klasik-Osmanlı mimarisinin yapısal-doruğu,
+    // UNESCO Dünya Mirası (2011). İstanbul atlas anchor'ının batı-eşi —
+    // Sinan-yapısının tek bir şehirde yoğunlaşmadığını, Trakya hattında
+    // imparatorluk siluetinin uzandığını gösteren ikinci-kutup.
+    slug: 'edirne',
+    latlng: [41.6766, 26.5556],
+    name: { tr: 'Edirne · Adrianopolis', en: 'Edirne · Adrianople', ar: 'أَدِرنة · أَدريانوپوليس' },
+    region: { tr: 'Trakya', en: 'Thrace', ar: 'تراقيا' },
+  },
+  {
     // Julfar · Cülfâr — Modern Birleşik Arap Emirlikleri'nin Ras al-Khaymah
     // emirliğinde, Basra Körfezi'nin Hint Okyanusu'na açılan boğazının
     // (Hürmüz) güney kıyısındaki tarihi liman. 9. yüzyıldan 17. yüzyıla
