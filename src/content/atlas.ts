@@ -32,6 +32,36 @@ export interface AtlasPlace {
 
 const PLACES: AtlasPlace[] = [
   {
+    // Aden — Yemen'in güney sahilindeki tarihi liman; Kızıldeniz'in çıkışını
+    // Hint Okyanusu'na bağlayan Bāb al-Mandab boğazının kuzey ağzında. 12.-
+    // 15. yy boyunca Memlûk Mısır-Hint Okyanusu baharatlı-ipek ticaretinin
+    // kavşağı; Ahmed bin Mâcid'in *Kitāb al-Fawāʾid*'in yazıldığı denizci
+    // atölyeleri burada. Modern *dhow* ve *felucca* tekne mühendisliğinin
+    // antik üretim merkezi; ayrıca *gulf* (Aden Körfezi) toponim-zincirinin
+    // kaynak-şehirlerinden. Atlas konumu: Mokha'nın güney-doğusu, Hint
+    // Okyanusu'na açılan Arap yarımadasının güney köşesi.
+    slug: 'aden',
+    latlng: [12.7794, 45.0367],
+    name: { tr: 'Aden', en: 'Aden', ar: 'عَدَن' },
+    region: { tr: 'Yemen sahili', en: 'the Yemeni coast', ar: 'الساحلُ اليَمَنيّ' },
+  },
+  {
+    // Alexandria · İskenderiye — Mısır'ın Akdeniz başkenti, MS Ö 331'den bu
+    // yana Helenistik-Roma-Bizans-Arap-Memlûk-Osmanlı boyunca süregelen
+    // dünya tarihinin en sürekli liman-akademik merkezlerinden. Antik
+    // İskenderiye Müzesi ve Kütüphanesi Yunan astronomi-matematik-felsefe
+    // geleneğinin altın çağ-merkezi (Euclid, Apollonius, Hipparchus,
+    // Ptolemy, Hypatia). Bizans-Arap geçişinde (642 fethi) liman-tersane
+    // altyapısı Arap denizciliğine devraldı; *gauze* (Gazza kıyısının
+    // tekstil-kuzeni), *gulf* (Akdeniz-Arap kıyı sözlüğü), *cable*, *felucca*
+    // sözcüklerinin Akdeniz Lingua Franca'sındaki ana-istasyonu. Atlas
+    // konumu: Nil deltasının batı ağzı, Akdeniz'in güney-doğu kıyısı.
+    slug: 'alexandria',
+    latlng: [31.2001, 29.9187],
+    name: { tr: 'İskenderiye · al-Iskandariyya', en: 'Alexandria', ar: 'الإسكَندَريّة' },
+    region: { tr: 'Mısır kıyısı', en: 'the Egyptian coast', ar: 'الساحلُ المِصريّ' },
+  },
+  {
     slug: 'baghdad',
     latlng: [33.3152, 44.3661],
     name: { tr: 'Bağdat', en: 'Baghdad', ar: 'بغداد' },
@@ -58,6 +88,20 @@ const PLACES: AtlasPlace[] = [
     latlng: [30.0444, 31.2357],
     name: { tr: 'Kahire', en: 'Cairo', ar: 'القاهرة' },
     region: { tr: 'Mısır', en: 'Egypt', ar: 'مصر' },
+  },
+  {
+    // Calicut · Kozhikode — Hindistan'ın Kerala eyaletinin Malabar sahilindeki
+    // tarihi liman; 9.-15. yy boyunca Arap-Hint Okyanusu baharatlı ticaretinin
+    // güney-Hint kavşağı (karabiber, tarçın, zencefil ihracatının ana çıkış
+    // limanı). 20 Mayıs 1498'de Vasco da Gama'nın Avrupa-doğrudan Hint
+    // Okyanusu seferinin son durağı; geleneğe göre Malindi'den Calicut'a
+    // Portekiz gemisini güvenli rota üzerinden götüren Arap pilot (efsanede
+    // Ahmed bin Mâcid) bu liman-girişinde tarihin akışını değiştirdi.
+    // *dhow* tekne tipinin Hint-tarafı standart limanı.
+    slug: 'calicut',
+    latlng: [11.2588, 75.7804],
+    name: { tr: 'Kalikut · Kozhikode', en: 'Calicut · Kozhikode', ar: 'كاليكوت' },
+    region: { tr: 'Malabar sahili', en: 'the Malabar coast', ar: 'ساحلُ مَلَبار' },
   },
   {
     slug: 'cambridge',
@@ -105,6 +149,19 @@ const PLACES: AtlasPlace[] = [
     region: { tr: 'İtalya', en: 'Italy', ar: 'إيطاليا' },
   },
   {
+    // Gaza · Ghazzah — Antik Filistin sahil kenti, Akdeniz'in güney-doğu
+    // ucu. 4. yy'dan itibaren ince ipek/keten dokuma merkezi; Bizans-Arap
+    // geçişinde tekstil pazarının kıyı-üssü. Latince *gazzatum* / Eski
+    // Fransızca *gaze* sözcüğünün hem toponim-kaynaklı (Gazza → gauze) hem
+    // Arapça *qazz* "ham ipek" yorumunda durduğu çift-okumalı düğüm. Atlas
+    // konumu: Damascus'un güney-batısı, Cairo'nun kuzey-doğusu — Levant
+    // sahil hattının orta noktası.
+    slug: 'gaza',
+    latlng: [31.5017, 34.4668],
+    name: { tr: 'Gazze · Ghazzah', en: 'Gaza · Ghazzah', ar: 'غَزّة' },
+    region: { tr: 'Filistin sahili', en: 'the Palestinian coast', ar: 'الساحلُ الفلسطينيّ' },
+  },
+  {
     // Gazne — Gazneli Mahmud'un (998-1030) başkenti; al-Bīrūnī'nin
     // 1017'den ölümüne (c. 1050) kadar 33 yıl üretim yaptığı yer.
     // *Tahqīq mā li'l-Hind* (1030), *al-Qānūn al-Masʿūdī* (1031),
@@ -131,6 +188,37 @@ const PLACES: AtlasPlace[] = [
     latlng: [34.7985, 48.5147],
     name: { tr: 'Hemedan · Ekbatana', en: 'Hamadan · Ecbatana', ar: 'هَمَذان' },
     region: { tr: 'Cibâl · İran platosu', en: 'Jibāl · the Iranian plateau', ar: 'الجِبال · هَضبةُ إيران' },
+  },
+  {
+    // İstanbul · Konstantinopolis — Bizans imparatorluğunun başkenti (330-1453),
+    // Osmanlı imparatorluğunun başkenti (1453-1922). Boğaz-üstü konumu
+    // Akdeniz-Karadeniz ticaret-eksenini kontrol eden tarihin en stratejik
+    // şehirlerinden. 8. yy Şam Ümeyye Camii örneğinden sonra Osmanlı klasik
+    // dönemi (Mimar Sinan, 16. yy) cami-mimarisinin altın çağ-merkezi; *minaret*
+    // sözcüğünün Türkçe-form üzerinden Avrupa'ya geçişinin atölyesi. Aynı
+    // dönemde Topkapı Sarayı *sofa* öğesinin Osmanlı klasik konut-mimarisinin
+    // standartı haline geldiği yer; 17. yy diplomatik temasla Fransa'ya
+    // *sofa* sözcüğünü taşıyan başkent. Atlas'ın kuzey-batı bağlam-merkezi.
+    slug: 'istanbul',
+    latlng: [41.0082, 28.9784],
+    name: { tr: 'İstanbul · Konstantinopolis', en: 'Istanbul · Constantinople', ar: 'إسطَنبول · القُسطَنطينيّة' },
+    region: { tr: 'Boğaziçi', en: 'the Bosphorus', ar: 'البوسفور' },
+  },
+  {
+    // Julfar · Cülfâr — Modern Birleşik Arap Emirlikleri'nin Ras al-Khaymah
+    // emirliğinde, Basra Körfezi'nin Hint Okyanusu'na açılan boğazının
+    // (Hürmüz) güney kıyısındaki tarihi liman. 9. yüzyıldan 17. yüzyıla
+    // kadar Arap-Fars-Hint Okyanusu ticaret ağının kuzey-doğu düğümü;
+    // *muʿallim al-baḥr* (deniz kılavuzu) mesleğinin geleneksel beşiği.
+    // Ahmed bin Mâcid (c. 1432-1500), *muʿallimu'l-baḥr* lakabıyla anılan
+    // Hint Okyanusu navigatörü, burada doğdu. 1498'de Vasco da Gama'yı
+    // Malindi'den Calicut'a götüren kılavuz olarak tarih kayıtlarına
+    // (kesinliği tartışmalı şekilde) geçer. Atlas'ın güney-doğu ucu —
+    // Bukhara'nın güneyi, Mokha'nın doğusu; Hint Okyanusu'na bakar.
+    slug: 'julfar',
+    latlng: [25.7895, 55.9432],
+    name: { tr: 'Cülfâr · Julfâr', en: 'Julfar', ar: 'جُلْفار' },
+    region: { tr: 'Hürmüz Boğazı', en: 'the Strait of Hormuz', ar: 'مَضيقُ هُرمُز' },
   },
   {
     slug: 'khwarazm',
@@ -181,6 +269,21 @@ const PLACES: AtlasPlace[] = [
     latlng: [31.6295, -7.9811],
     name: { tr: 'Merrakeş', en: 'Marrakech', ar: 'مَرّاكُش' },
     region: { tr: 'Mağrib · Atlas Dağları eteği', en: 'al-Maghrib · the foot of the Atlas mountains', ar: 'المَغرب · سَفحُ جِبالِ الأَطلَس' },
+  },
+  {
+    // Musul · al-Mawṣil — Dicle nehrinin batı kıyısında, yukarı
+    // Mezopotamya'nın (al-Jazīra) coğrafi merkezi. 8.-15. yy boyunca
+    // ince pamuk-keten karışımı dokumacılığın yoğunlaştığı şehir;
+    // *al-mawṣilī* (Mosul'dan, Mosul'lu) sıfatı bu fabrikanın çıktısı
+    // olan ince şeffaf kumaşı (muslin) niteler. 12. yy'dan itibaren
+    // Akdeniz tüccarı (Pisa, Cenova, Venedik) bu kumaşı satın alıp
+    // Avrupa'ya taşıdı; *mussolina* (İtalyancası) → *mousseline* (Fransızca)
+    // → *muslin* (İngilizce) etimoloji hattı buradan başlar. Atlas konumu:
+    // Bağdat'ın kuzey-batısı, Şam'ın doğusu — Yukarı Mezopotamya hattı.
+    slug: 'mosul',
+    latlng: [36.3489, 43.158],
+    name: { tr: 'Musul · al-Mawṣil', en: 'Mosul · al-Mawṣil', ar: 'المَوصِل' },
+    region: { tr: 'Yukarı Mezopotamya · el-Cezîre', en: 'Upper Mesopotamia · al-Jazīra', ar: 'الجَزيرةُ الفُراتيّة' },
   },
   {
     // Muha · Mokha · al-Mukhā — Yemen'in Kızıldeniz kıyısındaki liman
@@ -245,6 +348,25 @@ const PLACES: AtlasPlace[] = [
     latlng: [43.7228, 10.4017],
     name: { tr: 'Pisa', en: 'Pisa', ar: 'بيزا' },
     region: { tr: 'Toskana · Tirenya kıyısı', en: 'Tuscany · the Tyrrhenian coast', ar: 'توسكانا · ساحلُ تيرّينيا' },
+  },
+  {
+    // Raqqa · ar-Raqqah — Fırat'ın kuzey kıyısında, Yukarı Mezopotamya'nın
+    // (al-Jazīra) batı düğümü. Antik dönemde Nicephorium / Kallinikos.
+    // Abbâsî halîfesi Hârûn er-Reşîd (h. 786-809) 796-808 arasında
+    // başkenti Bağdat'tan buraya taşıdı; sonrasında Hârûn-sonrası dönemde
+    // de astronomi geleneğinin sürdüğü merkezlerden biri oldu. 9. yy'da
+    // Harranlı Sâbiî astronom topluluğunun (Sabian astronomers) Bağdat'a
+    // göçü tamamlanmadan önce Raqqa civarında bir gözlemevi geleneği
+    // sürüyordu; **al-Battânî** (c. 858-929) hayatının büyük bölümünü
+    // Raqqa'da çalışarak geçirdi. *Kitāb al-Zīj al-Ṣābiʾ* (Sâbiî Astronomi
+    // Tabloları) burada yazıldı; bu eser Plato Tiburtinus'un 1116 Latince
+    // tercümesiyle Latin Avrupa'sının trigonometri sözlüğüne *sinus*,
+    // *tangens*, *secans* terimlerini sağladı. Atlas konumu: Bağdat'ın
+    // kuzey-batısı, Şam'ın kuzey-doğusu, Mosul'un batısı.
+    slug: 'raqqa',
+    latlng: [35.9594, 39.0079],
+    name: { tr: 'Rakka · ar-Raqqa', en: 'Raqqa · ar-Raqqah', ar: 'الرَّقّة' },
+    region: { tr: 'Yukarı Mezopotamya · el-Cezîre', en: 'Upper Mesopotamia · al-Jazīra', ar: 'الجَزيرةُ الفُراتيّة' },
   },
   {
     // Rey · al-Rayy — Tahran'ın güney-doğu eteğinde (modern Şehr-i Rey),
@@ -314,6 +436,23 @@ const PLACES: AtlasPlace[] = [
     latlng: [45.4408, 12.3155],
     name: { tr: 'Venedik · Venezia', en: 'Venice', ar: 'البُندُقيّة · فينيسيا' },
     region: { tr: 'Adriyatik', en: 'the Adriatic', ar: 'الأَدرياتيكيّ' },
+  },
+  {
+    // Zanzibar — Doğu Afrika sahili açıklarında Hint Okyanusu Tanzanya
+    // adası; Arap denizciliği-Süahili kültürünün 10. yy'dan itibaren
+    // birleşim noktası, 19. yy Umman Sultanlığı'nın Hint Okyanusu
+    // ticaretinin başkenti. İngiliz koloni dönemi (1890-1963) Süahili-Arap
+    // deniz Lingua Franca'sından *dhow* sözcüğünü Avrupa'ya taşıyan kanal;
+    // 19. yy İngiliz Donanması'nın köle-ticareti karşıtı *dhow patrol*
+    // operasyonları sözcüğü Avrupa basınında standartlaştırdı. Modern
+    // Tanzanya'nın yarı-otonom kuzey adası; UNESCO Dünya Mirası taş-şehri
+    // (Stone Town) Arap-Hint-Afrika kültürel sentezinin canlı kalıntısı.
+    // Atlas'ın güney-doğu sınırı: Aden'in güneyi, Hint Okyanusu'nun
+    // Afrika-tarafı pivot-noktası.
+    slug: 'zanzibar',
+    latlng: [-6.1659, 39.2026],
+    name: { tr: 'Zanzibar', en: 'Zanzibar', ar: 'زَنجِبار' },
+    region: { tr: 'Doğu Afrika sahili', en: 'the East African coast', ar: 'ساحلُ شَرقِ أَفريقيا' },
   },
 ];
 
