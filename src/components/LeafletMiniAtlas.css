@@ -62,6 +62,13 @@
 
 /* ── Tooltip — serif, açık parşömen kutusu ───────────────────────── */
 
+/* Sticky+interactive Tooltip için: Leaflet default'u pointer-events: none
+   uygular; bunu aktifleştiriyoruz ki cursor tooltip-üzerine geldiğinde
+   tooltip kapanmasın. */
+.leaflet-tooltip.leaflet-interactive {
+  pointer-events: auto;
+}
+
 .leaflet-tooltip.rihla-tooltip,
 .leaflet-tooltip {
   background: var(--color-paper, #f5ebd5);

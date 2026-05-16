@@ -2,7 +2,7 @@ import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 /**
  * Riḥlat al-Kalimāt içerik manifest plugin'i (Oturum 7 dilim 1).
  *
@@ -129,8 +129,10 @@ function rihlaOriginInject(): Plugin {
     try {
       const configPath = path.resolve(__dirname, 'data/site-config.json');
       if (existsSync(configPath)) {
-        // dynamic require — readFileSync to avoid ESM/CJS interop quirk
-        const raw = require('node:fs').readFileSync(configPath, 'utf8');
+        // Static ESM import edilen readFileSync — eski CJS require kalıntısı
+        // ESM-mode'da `Dynamic require of "node:fs" is not supported` hatası
+        // veriyordu; top-level import çözer (Session 10.5 hotfix).
+        const raw = readFileSync(configPath, 'utf8');
         const json = JSON.parse(raw);
         if (typeof json.origin === 'string' && json.origin.length > 0) {
           return String(json.origin).replace(/\/$/, '');

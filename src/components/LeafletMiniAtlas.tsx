@@ -111,6 +111,8 @@ export default function LeafletMiniAtlas({ anchors }: MiniAtlasProps) {
               offset={[0, -18]}
               opacity={0.96}
               permanent={false}
+              sticky
+              interactive
             >
               <div className="rihla-marker-tooltip">
                 <div className="rihla-tooltip-name">

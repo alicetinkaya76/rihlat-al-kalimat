@@ -194,7 +194,7 @@ export default function LeafletAtlas({
             icon={placeIcon(cluster.entities.length, isDimmed)}
             opacity={isDimmed ? 0.45 : 1}
           >
-            <Tooltip direction="top" offset={[0, -18]} opacity={0.96}>
+            <Tooltip direction="top" offset={[0, -18]} opacity={0.96} sticky interactive>
               <div className="rihla-atlas-tooltip">
                 <strong>{pickLang(cluster.place.name, lang) ?? cluster.place.slug}</strong>
                 {cluster.place.region && (

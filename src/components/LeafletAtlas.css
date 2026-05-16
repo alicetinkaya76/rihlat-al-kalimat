@@ -56,6 +56,13 @@
 
 /* ── Tooltip (hover) — hızlı şehir bilgisi ─────────────────────────── */
 
+/* Leaflet default tooltip'e pointer-events: none uygular; sticky+interactive
+   modunda kullanmak için bunu aktifleştiriyoruz ki cursor tooltip-üzerine
+   gelirken kapanmasın. */
+.leaflet-tooltip.leaflet-interactive {
+  pointer-events: auto;
+}
+
 .rihla-atlas-tooltip {
   font-size: 13px;
   color: var(--color-ink, #2a2620);
